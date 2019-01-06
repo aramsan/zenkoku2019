@@ -1,0 +1,20 @@
+: cascade "include/layout.tx" { title => "ログイン | 第7回信州オフ" }
+
+: override content -> {
+
+<div class="jumbotron">
+    <div class="container">
+        <h2 class="hidden-xs">ログイン</h2>
+: if $error {
+        <div class="alert alert-danger" role="alert"><: $error :></div>
+: }
+        <form class="form-signin" action="/logini/check">
+            <label for="inputEmail" class="sr-only">メールアドレスを入力してください</label>
+            <input type="email" id="inputEmail" name="email" class="form-control" placeholder="メールアドレス" value="<: $email :>" required>
+            <label for="inputPassword" class="sr-only">パスワードを入力してください</label>
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="パスワード" required>
+            <button type="submit" class="btn btn-primary">ログイン</button>
+        </form>
+    </div>
+</div>
+: }

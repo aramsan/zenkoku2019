@@ -1,0 +1,27 @@
+: cascade "include/layout.tx" { title => "参加受付完了 | 第6回信州オフ" }
+
+: override content -> {
+
+<div class="container">
+    <h1>参加表明を受け付けました</h1>
+    <div class="col-md-4 col-md-offset-4">
+        <ul class="list-group">
+            <li class="list-group-item"><: $items.name :></li>
+            <li class="list-group-item"><: $items.email :></li>
+            <li class="list-group-item"><: $items.type :></li>
+            <li class="list-group-item"><: $items.grade :></li>
+            <li class="list-group-item"><: $items.departure :></li>
+            <li class="list-group-item">大人　<: $items.adult :>人</li>
+            <li class="list-group-item">子供　<: $items.child :>人</li>
+            <li class="list-group-item">後夜祭　参加<: if $items.after {:>する<:} else {:>しない<:} :></li>
+            <li class="list-group-item">大人　<: $items.after_adult :>人</li>
+            <li class="list-group-item">子供　<: $items.after_child :>人</li>
+: if $item.picture {
+            <li class="list-group-item"><img src="/static/thumbnail/<: $items.picture :> :>"></li>
+: }
+            <li class="list-group-item"><: $items.message :></li>
+        </ul>
+    </div>
+    <a class="btn btn-lg btn-primary" href="/" role="button">トップページへ</a>
+</div>
+: }

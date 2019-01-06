@@ -1,0 +1,190 @@
+: cascade "include/layout.tx" { title => "参加表明 | 第6回信州オフ" }
+
+: override content -> {
+
+<div class="container">
+    <h1>参加表明</h1>
+: if $error {
+    <div class="alert alert-danger" role="alert">$error</div>
+: }
+    <form class="form-signin" action="/register/submit" method="post" enctype="multipart/form-data">
+        <div class="form-control"><: $items.name :></div>
+        <input type="hidden" id="inputName" name="name" class="form-control" placeholder="ハンドルネーム" value="<: $items.name :>">
+        <div class="form-control"><: $items.email :></div>
+        <input type="hidden" id="inputEmail" name="email" class="form-control" placeholder="メールアドレス" value="<: $items.email :>">
+        <label for="inputPassword" class="sr-only">パスワードを入力してください</label>
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="パスワード" required>
+        <label for="inputRePassword" class="sr-only">パスワードをもう一度入力してください</label>
+        <input type="password" id="inputRePassword" name="repassword" class="form-control" placeholder="パスワード(確認用)" required>
+        車種<select name="type">
+            <option value="10ソアラ"
+: if ($items.type == '10ソアラ') {
+ selected
+: }
+>10ソアラ</option>
+<option value="20ソアラ"
+: if ($items.type == '20ソアラ') {
+ selected
+: }
+>20ソアラ</option>
+<option value="30ソアラ"
+: if ($items.type == '30ソアラ') {
+ selected
+: }
+>30ソアラ</option>
+<option value="40ソアラ"
+: if ($items.type == "40ソアラ") {
+ selected
+: }
+>40ソアラ</option>
+<option value="その他"
+: if ($items.type == "その他") {
+ selected
+: }
+>その他</option>
+</select>
+        <label for="inputGrade" class="sr-only">グレードを入力してください</label>
+        <input type="text" id="inputGrade" name="grade" class="form-control" placeholder="グレード" value="<: $items.grade :>" required>
+        <label for="inputDeparture" class="sr-only">出発地を入力してください</label>
+        <input type="text" id="inputDeparture" name="departure" class="form-control" placeholder="出発地" value="<: $items.departure :>" required>
+        参加人数<br>
+        　大人<select name="adult">
+<option value="1"
+: if ($items.adult == 1) {
+ selected
+: }
+>1人</option>
+<option value="2"
+: if ($items.adult == 2) {
+ selected
+: }
+>2人</option>
+<option value="3"
+: if ($items.adult == 3) {
+ selected
+: }
+>3人</option>
+<option value="4"
+: if ($items.adult == 4) {
+ selected
+: }
+>4人</option>
+<option value="5"
+: if ($items.adult == 5) {
+ selected
+: }
+>5人</option>
+</select>
+　小人<select name="child">
+<option value="0"
+: if ($items.child == 0) {
+ selected
+: }
+>0人</option>
+<option value="1"
+: if ($items.child == 1) {
+ selected
+: }
+>1人</option>
+<option value="2"
+: if ($items.child == 2) {
+ selected
+: }
+>2人</option>
+<option value="3"
+: if ($items.child == 3) {
+ selected
+: }
+>3人</option>
+<option value="4"
+: if ($items.child == 4) {
+ selected
+: }
+>4人</option>
+<option value="5"
+: if ($items.child == 5) {
+ selected
+: }
+>5人</option>
+</select><br>
+        後夜祭<br>
+        　<input type="checkbox" name="after" value="1"<: if $items.after { :>checked<: } :>>後夜祭に参加する<br>
+        　大人<select name="after_adult">
+<option value="0"
+: if ($items.after_adult == 0) {
+ selected
+: }
+>0人</option>
+<option value="1"
+: if ($items.after_adult == 1) {
+ selected
+: }
+>1人</option>
+<option value="2"
+: if ($items.after_adult == 2) {
+ selected
+: }
+>2人</option>
+<option value="3"
+: if ($items.after_adult == 3) {
+ selected
+: }
+>3人</option>
+<option value="4"
+: if ($items.after_adult == 4) {
+ selected
+: }
+>4人</option>
+<option value="5"
+: if ($items.after_adult == 5) {
+ selected
+: }
+>5人</option>
+</select>
+　小人<select name="after_child">
+<option value="0"
+: if ($items.after_child == 0) {
+ selected
+: }
+>0人</option>
+<option value="1"
+: if ($items.after_child == 1) {
+ selected
+: }
+>1人</option>
+<option value="2"
+: if ($items.after_child == 2) {
+ selected
+: }
+>2人</option>
+<option value="3"
+: if ($items.after_child == 3) {
+ selected
+: }
+>3人</option>
+<option value="4"
+: if ($items.after_child == 4) {
+ selected
+: }
+>4人</option>
+<option value="5"
+: if ($items.after_child == 5) {
+ selected
+: }
+>5人</option>
+</select><br>
+: if $items.picture {
+                                        <input type="file" class="form-control id="picture" name="picture" value="<: $items.picture :>">
+                                        <div class="thumbnail">
+                                            <img src="/static/thumbnail/<: $items.picture :>" height="60px">
+                                        </div>
+: } else {
+                                        <input type="file" class="form-control" id="picture" name="picture">
+: }
+        <label for="inputMessage" class="sr-only">ひとこと意気込みを入力してください</label>
+        <textarea id="inputMessage" name="message" class="form-control" rows="4" cols="25" placeholder="一言" required><: $items.message :></textarea>
+        <div><input type="checkbox" name="check" required>確認事項に同意する</div>
+        <button type="submit" class="btn btn-primary">送信</button>
+    </form>
+</div>
+: }

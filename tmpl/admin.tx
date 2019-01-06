@@ -1,0 +1,73 @@
+: cascade "include/layout.tx" { title => "管理メニュー | 第7回信州オフ" }
+
+: override content -> {
+
+<div class="container">
+    <div class="row">
+        <h1>参加者集計</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>参加台数</th>
+                    <th>参加者数</th>
+                    <th>大人</th>
+                    <th>子供</th>
+                    <th>後夜祭</th>
+                    <th>大人</th>
+                    <th>子供</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><: $stats.total_num :></td>
+                    <td><: $stats.total_adult + $stats.total_child :></td>
+                    <td><: $stats.total_adult :></td>
+                    <td><: $stats.total_child :></td>
+                    <td><: $stats.total_after_adult + $stats.total_after_child :></td>
+                    <td><: $stats.total_after_adult :></td>
+                    <td><: $stats.total_after_child :></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <h1>参加者リスト</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>ハンドルネーム</th>
+                    <th>車種</th>
+                    <th>グレード</th>
+                    <th>出発地</th>
+                    <th>大人</th>
+                    <th>子供</th>
+                    <th>後夜祭</th>
+                    <th>大人</th>
+                    <th>子供</th>
+                    <th>キャンセル</th>
+                    <th>管理者</th>
+                </tr>
+            </thead>
+            <tbody>
+: for $list -> $item {
+                <tr>
+                    <td><: $item.id :></td>
+                    <td><: $item.name :></td>
+                    <td><: $item.type :></td>
+                    <td><: $item.grade :></td>
+                    <td><: $item.departure :></td>
+                    <td><: $item.adult :></td>
+                    <td><: $item.child :></td>
+                    <td><: if ($item.after) { :>参加<: } :></td>
+                    <td><: $item.after_adult :></td>
+                    <td><: $item.after_child :></td>
+                    <td><: $item.cancel :></td>
+                    <td><: $item.admin :></td>
+                </tr>
+: }
+            </tbody>
+        </table>
+    </div>
+</div>
+: }
