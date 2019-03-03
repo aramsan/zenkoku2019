@@ -1,7 +1,0 @@
-: cascade "include/layout.tx" {}
-
-: override content -> {
-<div class="container-fluid">
-   <img src="./img/zenkoku2019-ogp">
-</div>
-: }

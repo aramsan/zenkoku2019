@@ -1,0 +1,49 @@
+: cascade "include/layout.tx" {}
+
+: override content -> {
+<div class="jumbotron">
+<h1>　<br>　<br>　<br>　<br>　<br>　<br>　<br>　<br>　<br></h1>
+</div>
+<div class="container" id="detail">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="text-center infobox">
+                <h2>詳細情報</h2>
+<pre class="text-left">
+開催日時　：　7月 14日 日曜日　雨天決行！！
+開催場所　：　信州塩尻農業公園チロルの森　(http://www.tirol.gr.jp/)
+主催　　　：　SOARER FESTIVAL 2019実行委員会 / チーム纏
+
+詳細は後日公開いたします。予定を確保の上、お待ち頂ますようお願いいたします。
+</pre>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 link-box">
+            <div class="link-box-inner">ギャラリー
+                <a href="/gallery">
+                    <img src="/static/img/gallery.jpg">
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 link-box">
+            <div class="link-box-inner">チロルの森
+                <a href="http://www.tirol.gr.jp/" target="_blank">
+                    <img src="http://www.tirol.gr.jp/img/02.jpg" width="250px">
+                    <img src="http://www.tirol.gr.jp/img/05.jpg" width="250px" style="max-height: 108px;">
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 link-box">
+            <div class="link-box-inner">信州観光
+                <a href="http://www.shinshu-dc.net" target="_blank">
+                    <img src="/static/img/bl-007-1.jpg" width="250px">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+: }

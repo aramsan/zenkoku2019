@@ -2,8 +2,6 @@ pre {
     overflow: auto;
     white-space: pre-wrap;
     word-wrap: break-word;
-    margin-bottom: 0;
-    border: 0;
 }
 
 .navbar {
@@ -13,12 +11,8 @@ pre {
 .jumbotron {
     padding: 15px 15px;
     text-align: center;
-    background-position: center center;
-    background-image: url("/static/img/zenkoku2019-kv-newlogo-wide.png");
+    background-image: url("/static/img/shinshu2017bg.png");
     background-size: cover;
-}
-.card {
-    width: 100%;
 }
 
 h2 {
