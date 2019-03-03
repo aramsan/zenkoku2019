@@ -1,0 +1,1 @@
+CREATE DATABASE zenkoku CHARACTER SET utf8mb4;

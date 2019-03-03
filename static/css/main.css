@@ -17,6 +17,9 @@ pre {
     background-image: url("/static/img/zenkoku2019-kv-newlogo-wide.png");
     background-size: cover;
 }
+.card {
+    width: 100%;
+}
 
 h2 {
     padding-top: 10px;

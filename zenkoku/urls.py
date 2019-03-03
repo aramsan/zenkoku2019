@@ -18,5 +18,6 @@ from django.urls import include, path
 from . import views
 
 urlpatterns = [
+    path('bbs/', include('bbs.urls')),
     path('', include('app.urls')),
 ]
