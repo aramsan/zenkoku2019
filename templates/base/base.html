@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% load static %}
+  
+    <title>SOARER FESTIVAL 2019</title>
+    <!-- OGP -->
+    <meta property="og:title" content="SOARER FESTIVAL 2019">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="2019年7月14日 SOARER FESTIVAL 2019">
+    <meta property="og:url" content="https://team-matoi.com/">
+    <meta property="og:image" content="https://team-matoi.com/img/zenkoku2019-kv-newlogo.png">
+    <meta property="og:site_name" content="SOARER FESTIVAL 2019">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="{% static "js/jquery.flexslider.js" %}"></script>
+    <link href="{% static "css/flexslider.css"%} rel="stylesheet" type="text/css" />
+    <script src="{% static "js/strftime.js" %}"></script>
+    <script src="{% static "js/sprintf.js" %}"></script>
+    <script src="{% static "js/micro-location.js" %}"></script>
+    <script src="{% static "js/micro_dispatcher.js" %}"></script>
+    <link href="{% static "css/main.css" %}" rel="stylesheet" type="text/css" media="screen" />
+    <script src="{% static "js/main.js" %}"></script>
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">SOARER FESTIVAL 2019</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+      {% block contents %}{% endblock %}
+    </main>
+    <div class="row">
+        <div class="text-center">運営:SOARER FESTIVAL 2019 実行委員会 / チーム纏</div>
+    </div>
+  </body>
+</html>

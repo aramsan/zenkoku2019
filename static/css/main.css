@@ -1,0 +1,117 @@
+pre {
+    overflow: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin-bottom: 0;
+    border: 0;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.jumbotron {
+    padding: 15px 15px;
+    text-align: center;
+    background-position: center center;
+    background-image: url("/static/img/zenkoku2019-kv-newlogo-wide.png");
+    background-size: cover;
+}
+
+h2 {
+    padding-top: 10px;
+    color: #FFF;
+}
+
+h4 {
+    padding-top: 15px;
+    color: #FFF;
+}
+
+h6 {
+    color: #FFF;
+}
+
+.form-signin {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.form-control {
+    margin-bottom: 5px;
+}
+
+.link-box {
+    margin: 10px 0;
+}
+
+.link-box-inner {
+    background: #140661;
+    width:250px;
+    height:250px;
+    margin: 0 auto;
+    font-size: 20px;
+    vertical-align: center;
+    text-align: center;
+    color: #FFF;
+}
+
+.list-name {
+    font-family: inherit;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.1;
+    padding: 0 0;
+    margin: 0 0;
+    color: #140661;
+}
+
+.infobox {
+    background-color: #140661;
+}
+
+.list-item {
+    background: #140661;
+    min-height: 150px;
+    margin: 10px;
+}
+
+.list-tag {
+    color: #888;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.list-tags {
+    padding: 20px 0 0;
+}
+
+.list-text {
+    color: #000;
+    margin: 0 50px;
+}
+
+.list-img {
+    margin: 10px;
+}
+
+.thumbnail {
+    background: #f5f5f5;
+}
+
+body {
+}
+
+footer {
+    text-align: right;
+    padding-right: 10px;
+    padding-top: 2px; }
+    footer a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+    }
+
+/* smart phones */
+@media screen and (max-device-width: 480px) {
+}
