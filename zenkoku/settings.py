@@ -25,7 +25,7 @@ SECRET_KEY = '(boj5#e7%^o2bz2=dmg1aq036-j@3cim+i!#5=bm&rue5_1_59'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['team-matoi.com','153.126.214.157']
 
 
 # Application definition
