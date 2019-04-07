@@ -19,5 +19,6 @@ from . import views
 
 urlpatterns = [
     path('bbs/', include('bbs.urls')),
+    path('entry/', include('entry.urls')),
     path('', include('app.urls')),
 ]
