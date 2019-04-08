@@ -60,7 +60,7 @@ def signuprequest(request):
         creation.save()
         request.session['username'] = username
         request.session['userid'] = creation.userid
-        return HttpResponseRedirect(reverse('index'))
+        return HttpResponseRedirect(reverse('entryindex'))
 
     return render(request, 'app/index.html')
 
