@@ -17,7 +17,7 @@
         {% for comment in entry.comments %}
         <div><span class="mr-2">{{ comment.username }}</span>{{ comment.message|linebreaksbr }}</div>
         {% endfor %}
-        <div  class="pt-2"><small>車種：{{ entry.type }}　グレード{{ entry.grade }}　出発地：{{ entry.departure }}</small></div>
+        <div  class="pt-2"><small>車種：{{ entry.type }}　グレード：{{ entry.grade }}　出発地：{{ entry.departure }}</small></div>
         <div><small>大人{{ entry.adult }}人　小人{{ entry.child }}人</small></div>
         <div><small><abbr class="timeago text-secondary" title="{{ entry.time|date:'Y-m-d H:i:s' }}">更新時間</abbr></small></div>
         </div>

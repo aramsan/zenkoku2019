@@ -9,7 +9,7 @@ class Entry(models.Model):
     grade = models.CharField(max_length=100)
     adult = models.IntegerField(default = 1)
     child = models.IntegerField(default = 0)
-    picture = models.CharField(max_length=64, default=None)
+    picture = models.CharField(max_length=256, default=None)
     departure = models.CharField(max_length=100)
     message = models.TextField(blank=True)
     time = models.DateTimeField(auto_now=True)
