@@ -3,7 +3,7 @@
 {% load static %}
 {% if entry_list %}
 {% for entry in entry_list %}
-<div class="row p-4 text-left">
+<div class="row p-4 text-left" id="{{ entry.userid }}">
     <div class ="col-md-4 offset-md-4">
     <div class="card">
         <ul class="list-group list-group-flush">
@@ -11,12 +11,23 @@
         </ul>
         <img class="card-img" src="{{ entry.picture }}">
         <div class="card-body">
-        <div><a href="#" class="pr-2 text-dark">いいね！</a><a href="#" class="text-dark">コメント</a></div>
+        <div><a href="#" class="pr-2 text-dark">いいね！</a></div>
         <div class="pb-2"><span class="mr-2">いいね！</span>{{ entry.likes|length }}件</div>
         <div>{{ entry.message|linebreaksbr }}</div>
         {% for comment in entry.comments %}
-        <div><span class="mr-2">{{ comment.username }}</span>{{ comment.message|linebreaksbr }}</div>
+        <div><span class="mr-2"><a href="/entry/#{{ comment.commenter }}">@{{ comment.commenterinfo.username }}</a></span>{{ comment.message|linebreaksbr }}</div>
         {% endfor %}
+        {% if 'username' in request.session %}
+        <form action="/entry/comment/{{ entry.userid }}/" method="POST" class="form-inline">
+            {% csrf_token %}
+            <div class="input-group w-100">
+                <input type="text" class="form-control" name="comment" placeholder="コメントする">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary text-right">送る</button>
+                </div>
+            </div>
+        </form>
+        {% endif %}
         <div  class="pt-2"><small>車種：{{ entry.type }}　グレード：{{ entry.grade }}　出発地：{{ entry.departure }}</small></div>
         <div><small>大人{{ entry.adult }}人　小人{{ entry.child }}人</small></div>
         <div><small><abbr class="timeago text-secondary" title="{{ entry.time|date:'Y-m-d H:i:s' }}">更新時間</abbr></small></div>

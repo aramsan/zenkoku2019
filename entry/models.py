@@ -27,6 +27,9 @@ class Comment(models.Model):
     message = models.TextField(blank=True)
     time = models.DateTimeField(auto_now=True)
 
+    def commenterinfo(self):
+        return Entry.objects.filter(userid=self.commenter).first()
+
 class Like(models.Model):
     likeid = models.AutoField(primary_key=True)
     userid = models.ForeignKey(Entry, on_delete=models.CASCADE)

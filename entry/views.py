@@ -90,6 +90,18 @@ def logout(request):
         del request.session['userid']
     return HttpResponseRedirect(reverse('index'))
 
+def comment(request, userid):
+    entry = Entry.objects.filter(userid=userid).first()
+    commenterid = request.session['userid']
+    commenter = Entry.objects.filter(userid=commenterid).first()
+    creation = Comment(
+        userid = entry,
+        commenter = commenter.userid,
+        message = request.POST.get('comment')
+    )
+    creation.save()
+    return HttpResponseRedirect(reverse('entryindex') + "#" + str(userid))
+
 def save_picture_file(f):
     filename = 'static/picture/' + datetime.datetime.today().strftime('%s') + f.name
     with open(filename, 'wb+') as destination:
