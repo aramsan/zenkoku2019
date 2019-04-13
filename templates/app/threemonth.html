@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  	<head>
+		<!-- Required meta tags -->
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		{% load static %}
+	
+		<title>SOARER FESTIVAL 2019</title>
+		<!-- OGP -->
+		<meta property="og:title" content="SOARER FESTIVAL 2019">
+		<meta property="og:type" content="website">
+		<meta property="og:description" content="SOARER FESTIVAL 2019は2019年7月14日に長野県塩尻市チロルの森で開催します。">
+		<meta property="og:url" content="https://team-matoi.com/3month/">
+		<meta property="og:image" content="https://team-matoi.com/static/img/zenkoku2019-kv-newlogo.png">
+		<meta property="og:site_name" content="SOARER FESTIVAL 2019">
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@aramsan" />
+		<meta property="og:url" content="https://team-matoi.com/3month/" />
+		<meta property="og:title" content="SOARER FESTIVAL 2019" />
+		<meta property="og:description" content="SOARER FESTIVAL 2019は2019年7月14日に長野県塩尻市チロルの森で開催します。" />
+		<meta property="og:image" content="https://team-matoi.com/static/img/zenkoku2019-kv-newlogo.png" />
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+		<script src="{% static "js/jquery.validationEngine-ja.js" %}"></script>
+		<script src="{% static "js/jquery.validationEngine.js" %}"></script>
+		<script src="{% static "js/jquery.flexslider.js" %}"></script>
+		<link href="{% static "css/flexslider.css"%} rel="stylesheet" type="text/css" />
+		<script src="{% static "js/strftime.js" %}"></script>
+		<script src="{% static "js/sprintf.js" %}"></script>
+		<script src="{% static "js/micro-location.js" %}"></script>
+		<script src="{% static "js/micro_dispatcher.js" %}"></script>
+		<link href="{% static "css/main.css" %}?asdf" rel="stylesheet" type="text/css" media="screen" />
+		<link href="{% static "css/validationEngine.jquery.css" %}" rel="stylesheet" type="text/css" />
+		<script src="{% static "js/main.js" %}"></script>
+		<script type="text/javascript" src="{% static "/js/jquery.timeago.js" %}"></script>
+		<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<script>
+		$(document).ready(function(){
+		jQuery.timeago.settings.strings = {
+			prefixAgo: "",
+			prefixFromNow: "今から",
+			suffixAgo: "前",
+			suffixFromNow: "後",
+			seconds: "1 分未満",
+			minute: "約 1 分",
+			minutes: "%d 分",
+			hour: "約 1 時間",
+			hours: "約 %d 時間",
+			day: "約 1 日",
+			days: "約 %d 日",
+			month: "約 1 ヶ月",
+			months: "約 %d ヶ月",
+			year: "約 1 年",
+			years: "約 %d 年",
+			wordSeparator: ""
+		};
+		$('abbr.timeago').timeago();
+		});
+		</script>
+  	</head>
+  	<body>
+    	<nav class="navbar navbar-dark">
+      		<a class="navbar-brand" href="/">SOARER FESTIVAL 2019</a>
+      		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsMenu" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+        		<span class="navbar-toggler-icon"></span>
+      		</button>
+
+			<div class="collapse navbar-collapse" id="navbarsMenu">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<span class="navbar-text">
+							{% if 'userid' in request.session %}{{ request.session.username }}さん{% endif %}
+						</span>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/">トップページ</a>
+					</li>
+					{% if 'userid' in request.session %}
+					<li class="nav-item">
+						<a class="nav-link" href="/entry/logout/">ログアウト</a>
+					</li>
+					{% else %}
+					<li class="nav-item">
+						<a class="nav-link" href="/entry/login/">ログイン</a>
+					</li>
+					{% endif %}
+					<li class="nav-item">
+						<a class="nav-link" href="/entry/">参加者リスト</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/bbs/">お問い合わせ掲示板</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/gallery">ギャラリー</a>
+					</li>
+				</ul>
+			</div>
+   		</nav>
+		<main>
+			<div class="jumbotron">
+			</div>
+			{% if 'userid' not in request.session %}
+			<div class="container">
+				<div class="row">
+				<div class="col-md-4 offset-md-4">
+					<ul class="list-group text-center" style="width: 100%;">
+						<li class="list-group-item"><a href="/entry/signup/">参加表明</a></li>  
+					</ul>
+				</div>
+			</div>
+			</div>
+			{% endif %}
+			<div class="container">
+				<div class="row mt-5 mb-5">
+					<div class="col-md-8 offset-md-2">
+						<div class="text-center infobox">
+						<h2>ご挨拶</h2>
+<pre class="text-left">
+こんにちは。SOARER FESTIVAL 2019 実行委員会 / チーム纏 代表の纏です。こうやって信州でソアライベントを行うようになって今年で10年目。はじめは少ない台数で始まったこのイベントも全国オフというビックイベントを開催できるまでに成長でき非常に嬉しく思います。これもひとえに例年参加して下さる皆様のおかげだと思っております。帰り際『また来年も来るから～』の一言でここまでやれたんだなと思います。
+SOARER FESTIVAL 2019 in 信州 は10～40/SCの各型式のオーナー様が全国各地から集まり交流・情報交換を図ることを目的としております。またご家族連れの方、初参加の方でも気軽に参加できるようなイベント作りを心掛けております。会場内は食事の他、各アトラクション等もありますのでカーミーティングに観光にと一日を通して楽しめるかと思います。
+当イベントが皆様にとって有意義な時間となりより一層素敵なソアラライフになればと願っております！！！！
+お友達・ご家族お誘いの上信州に遊びに来ていただければと思います。
+</pre>
+<pre class="text-right">
+SOARER FESTIVAL 2019 実行委員会 / チーム纏 代表　纏
+</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% if 'userid' not in request.session %}
+			<div class="container">
+				<div class="row">
+				<div class="col-md-4 offset-md-4">
+					<ul class="list-group text-center" style="width: 100%;">
+						<li class="list-group-item"><a href="/entry/signup/">参加表明</a></li>  
+					</ul>
+				</div>
+			</div>
+			</div>
+			{% endif %}
+			<div class="container" id="detail">
+				<div class="row mt-5 mb-5">
+					<div class="col-md-8 offset-md-2">
+						<div class="text-center infobox">
+							<h2>詳細情報</h2>
+<pre class="text-left">
+開催日時：2019.07.14(日)　※雨天決行
+開催時刻：10：00～16：00
+※入場・受付開始8：00～　
+※会場が17時閉園となりますので17時完全撤収となります。
+
+主　　催：SOARER FESTIVAL 2019 実行委員会 / チーム纏 (代表　纏)
+
+目　　的：ソアラを通して全国の方と交流の輪を広げると共に情報交換することでより一層輝くカーライフとなる事を目的とし誰でも気軽に参加でき家族連れの方でも楽しめることを目的としたイベントです。
+
+当日のタイムスケジュール
+
+08:00　　入場・受付開始
+10:00　　開会式
+15:00　　大抽選会
+15:30　　閉会式　
+17:00　　完全撤収！！！！
+
+開催場所：信州塩尻農業公園チロルの森　(http://www.tirol.gr.jp/)
+
+参加費　：2000円
+
+※記念品込みとなります。
+※同乗者の方は一人に付き500円
+※運転手+同乗者2名の場合。2000+500+500で3000円となります。
+※ソアラ以外のお車で見学者の方は一律500円となります。
+
+参加資格：ALL SOARER （10～40系）＆LEXUS SC。
+※それらの車種をこよなく愛される方。
+※他車種の方でも参加(見学)可能ですが駐車エリアは別となります。
+</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			{% if 'userid' not in request.session %}
+			<div class="container">
+				<div class="row mt-5 mb-5">
+					<div class="col-md-4 offset-md-4">
+						<ul class="list-group text-center" style="width: 100%;">
+							<li class="list-group-item"><a href="/entry/signup/">参加表明</a></li>  
+						</ul>
+					</div>
+				</div>
+			</div>
+			{% endif %}
+			<div class="container">
+                <div class="row">
+                <div class="col-12">
+                    <p class="text-center "><a href="/">トップページへ</a></p>
+                </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                <div class="col-12">
+                    <p class="text-center "><small>運営:SOARER FESTIVAL 2019 実行委員会 / チーム纏</small></p>
+                </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
