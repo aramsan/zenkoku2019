@@ -1,3 +1,9 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
+body {
+	font-family: 'Noto Sans JP', sans-serif;
+}
+
 pre {
     overflow: auto;
     white-space: pre-wrap;
@@ -6,11 +12,13 @@ pre {
     padding: 10px;
     border: 0;
     background-color: #E1E2EF;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 .navbar {
     margin-bottom: 0;
     background-color: #140661;
+    text-align: right;
 }
 
 .jumbotron {

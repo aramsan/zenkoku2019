@@ -7,7 +7,11 @@
     <div class="row">
       <div class="col-md-4 offset-md-4">
          <ul class="list-group text-center" style="width: 100%;">
+            {% if 'userid' in request.session %}
+            <li class="list-group-item"><a href="/entry/edit/">参加表明修正</a></li>
+            {% else %}
             <li class="list-group-item"><a href="/entry/signup/">参加表明</a></li>
+            {% endif %}
             <li class="list-group-item"><a href="/entry/">参加者一覧</a></li>
             <li class="list-group-item"><a href="/bbs">問い合わせ掲示板</a></li>
             <li class="list-group-item"><a href="/gallery">ギャラリー</a></li>

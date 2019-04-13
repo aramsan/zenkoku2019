@@ -70,23 +70,31 @@
 
       <div class="collapse navbar-collapse" id="navbarsMenu">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <li class="nav-item">
+          <span class="navbar-text">
+            {% if 'userid' in request.session %}{{ request.session.username }}さん{% endif %}
+           </span>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">login</a>
+            <a class="nav-link" href="/">トップページ</a>
+          </li>
+          {% if 'userid' in request.session %}
+          <li class="nav-item">
+            <a class="nav-link" href="/entry/logout/">ログアウト</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="/entry/login/">ログイン</a>
+          </li>
+          {% endif %}
+          <li class="nav-item">
+            <a class="nav-link" href="/entry/">参加者リスト</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#">logout</a>
+            <a class="nav-link" href="/bbs/">お問い合わせ掲示板</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">entry list</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">bbs</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">gallery</a>
+            <a class="nav-link" href="/gallery">ギャラリー</a>
           </li>
         </ul>
       </div>

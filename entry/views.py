@@ -18,7 +18,7 @@ def signup(request):
     data = {}
     if 'data' in request.session:
         data = request.session.get('data')  
-        #del request.session['data']
+        del request.session['data']
     return render(request, 'entry/signup.html', {'error': error, 'data': data})
 
 def signuprequest(request):
@@ -60,9 +60,35 @@ def signuprequest(request):
         creation.save()
         request.session['username'] = username
         request.session['userid'] = creation.userid
+        request.session['email'] = creation.email
         return HttpResponseRedirect(reverse('entryindex'))
 
     return render(request, 'app/index.html')
+
+def login(request):
+    return render(request, 'entry/login.html')
+
+def loginrequest(request):
+    error = ''
+    email = request.POST.get('email')
+    rawPassword = request.POST.get('password')
+    password = hashlib.sha256(rawPassword.encode('utf-8')).hexdigest()
+    entry = Entry.objects.filter(email=email, password=password).first()
+    if entry:
+        request.session['username'] = entry.username
+        request.session['userid'] = entry.userid
+        request.session['email'] = entry.email
+        return HttpResponseRedirect(reverse('index'))
+    else:
+        error='メールアドレス、または、パスワードが間違っています'
+        return render(request, 'entry/login.html',{'error': error, 'email': email})
+
+def logout(request):
+    if 'username' in request.session:
+        del request.session['username']
+    if 'userid' in request.session:
+        del request.session['userid']
+    return HttpResponseRedirect(reverse('index'))
 
 def save_picture_file(f):
     filename = 'static/picture/' + datetime.datetime.today().strftime('%s') + f.name
