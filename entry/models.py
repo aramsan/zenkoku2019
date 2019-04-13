@@ -35,3 +35,6 @@ class Like(models.Model):
     userid = models.ForeignKey(Entry, on_delete=models.CASCADE)
     liker = models.IntegerField(default = 0)
     time = models.DateTimeField(auto_now=True)
+
+    def likerinfo(self):
+        return Entry.objects.filter(userid=self.liker).first()

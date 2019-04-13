@@ -10,4 +10,5 @@ urlpatterns = [
      path('login/request/', views.loginrequest, name='loginrequest'),
      path('logout/', views.logout, name='logout'),
      path('comment/<int:userid>/', views.comment, name="comment"),
+     path('like/<int:userid>/', views.like, name="like"),
 ]

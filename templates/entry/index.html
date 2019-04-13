@@ -2,6 +2,15 @@
 {% block contents %}
 {% load static %}
 {% if entry_list %}
+<script>
+$(function () {
+    {% for entry in entry_list %}
+    $('[data-toggle="tooltip{{ entry.userid }}"]').tooltip();
+    {% endfor %}
+})
+</script>
+{% endif %}
+{% if entry_list %}
 {% for entry in entry_list %}
 <div class="row p-4 text-left" id="{{ entry.userid }}">
     <div class ="col-md-4 offset-md-4">
@@ -11,11 +20,15 @@
         </ul>
         <img class="card-img" src="{{ entry.picture }}">
         <div class="card-body">
-        <div><a href="#" class="pr-2 text-dark">いいね！</a></div>
-        <div class="pb-2"><span class="mr-2">いいね！</span>{{ entry.likes|length }}件</div>
+        <div class="pb-2">
+            <span class="mr-2"  data-toggle="tooltip{{ entry.userid }}" data-placement="right" data-html="true" title="いいねした人{% for like in entry.likes %}<br>{{ like.likerinfo.username }} さん{% endfor %}">
+                {% if 'userid' in request.session %}<a href="/entry/like/{{ entry.userid }}/"><i class="fas fa-thumbs-up"></i></a>{% else %}<i class="fas fa-thumbs-up"></i>{% endif %}
+                {{ entry.likes|length }}件
+            </span>
+        </div>
         <div>{{ entry.message|linebreaksbr }}</div>
         {% for comment in entry.comments %}
-        <div><span class="mr-2"><a href="/entry/#{{ comment.commenter }}">@{{ comment.commenterinfo.username }}</a></span>{{ comment.message|linebreaksbr }}</div>
+        <div><span class="mr-2"><a href="/entry/#{{ comment.commenter }}" class="text-dark">@{{ comment.commenterinfo.username }}</a></span>{{ comment.message|linebreaksbr }}</div>
         {% endfor %}
         {% if 'username' in request.session %}
         <form action="/entry/comment/{{ entry.userid }}/" method="POST" class="form-inline">

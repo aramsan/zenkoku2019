@@ -96,11 +96,28 @@ def comment(request, userid):
     commenter = Entry.objects.filter(userid=commenterid).first()
     creation = Comment(
         userid = entry,
-        commenter = commenter.userid,
+        commenter = commenterid,
         message = request.POST.get('comment')
     )
     creation.save()
     return HttpResponseRedirect(reverse('entryindex') + "#" + str(userid))
+
+def like(request, userid):
+    entry = Entry.objects.filter(userid=userid).first()
+    likerid = request.session['userid']
+    likecheck = Like.objects.filter(userid=userid, liker=likerid).first()
+    if likecheck:
+        likecheck.delete()
+    else:
+        liker = Entry.objects.filter(userid=likerid).first()
+        creation = Like(
+            userid = entry,
+            liker = likerid,
+        )
+        creation.save()
+
+    return HttpResponseRedirect(reverse('entryindex') + "#" + str(userid))
+
 
 def save_picture_file(f):
     filename = 'static/picture/' + datetime.datetime.today().strftime('%s') + f.name
