@@ -20,6 +20,13 @@ $(function () {
         </ul>
         <img class="card-img" src="{{ entry.picture }}">
         <div class="card-body">
+        {% if 'userid' in request.session %}
+        {% if entry.userid == request.session.userid %}
+        <div class="pb-2">
+            <a href="/entry/edit/"><i class="fas fa-edit mr-1"></i>編集する</a>
+        </div>
+        {% endif %}
+        {% endif %}
         <div class="pb-2">
             <span class="mr-2"  data-toggle="tooltip{{ entry.userid }}" data-placement="right" data-html="true" title="いいねした人{% for like in entry.likes %}<br>{{ like.likerinfo.username }} さん{% endfor %}">
                 {% if 'userid' in request.session %}<a href="/entry/like/{{ entry.userid }}/"><i class="fas fa-thumbs-up"></i></a>{% else %}<i class="fas fa-thumbs-up"></i>{% endif %}

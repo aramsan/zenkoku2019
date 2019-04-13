@@ -65,6 +65,56 @@ def signuprequest(request):
 
     return render(request, 'app/index.html')
 
+def edit(request):
+    error = {}
+    if 'error' in request.session:
+        error = request.session.get('error')
+        del request.session['error']
+    data = Entry.objects.filter(userid=request.session['userid']).first()
+    if 'data' in request.session:
+        data = request.session.get('data')  
+        del request.session['data']
+    return render(request, 'entry/edit.html', {'error': error, 'data': data})
+
+def editrequest(request):
+    if 'error' in request.session:   
+        del request.session['error']
+    username = request.POST.get('username')
+    filename = save_picture_file(request.FILES['picture'])
+    rawPassword = request.POST.get('password')        
+    password = hashlib.sha256(rawPassword.encode('utf-8')).hexdigest()
+    data = {
+        "username" : username, 
+        "email"    : request.POST.get('email'),
+        "password" : password,
+        "picture"  : filename,
+        "type"     : request.POST.get('type'),
+        "grade"    : request.POST.get('grade'),
+        "adult"    : request.POST.get('adult'),
+        "child"    : request.POST.get('child'),
+        "departure": request.POST.get('departure'),
+        "message"  : request.POST.get('message')
+    }
+    request.session['data'] = data
+    creation = Entry(
+        userid    = request.session['userid'],
+        username  = username, 
+        email     = data['email'],
+        password  = data['password'],
+        picture   = data['picture'],
+        type      = data['type'],
+        grade     = data['grade'],
+        adult     = data['adult'],
+        child     = data['child'],
+        departure = data['departure'],
+        message   = data['message']
+    )
+    creation.save()
+    request.session['username'] = username
+    request.session['userid'] = creation.userid
+    request.session['email'] = creation.email
+    return HttpResponseRedirect(reverse('entryindex') + "#" + str(request.session['userid']))
+
 def login(request):
     return render(request, 'entry/login.html')
 
