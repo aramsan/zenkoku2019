@@ -2,51 +2,41 @@
 {% block contents %}
 {% load static %}
 <div class="jumbotron">
-   <h1>　<br>　<br>　<br>　<br>　<br>　<br></h1>
 </div>
 <div class="container">
     <div class="row">
-      <div class="col-md-4 col-md-offset-4">
+      <div class="col-md-4 offset-md-4">
          <ul class="list-group text-center" style="width: 100%;">
-            <li class="list-group-item"><a href="/bbs">問い合せ掲示板</a></li>
+            {% if 'userid' in request.session %}
+            <li class="list-group-item"><a href="/entry/edit/">参加表明修正</a></li>
+            {% else %}
+            <li class="list-group-item"><a href="/entry/signup/">参加表明</a></li>
+            {% endif %}
+            <li class="list-group-item"><a href="/entry/">参加者一覧</a></li>
+            <li class="list-group-item"><a href="/threemonth">代表の挨拶</a></li>
+            <li class="list-group-item"><a href="/bbs">問い合わせ掲示板</a></li>
             <li class="list-group-item"><a href="/gallery">ギャラリー</a></li>
          </ul>
       </div>
    </div>
 </div>
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+    <div class="row mt-5">
+        <div class="col-md-8 offset-md-2">
             <div class="text-center infobox">
             <h2>新着情報</h2>
 <pre>
-2019.3.3 詳細情報と主催からの挨拶をアップしました
+2019.4.14 参加表明受付を開始しました
+2019.3.3 詳細情報をアップしました
 </pre>
             </div>
          </div>
       </div>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="text-center infobox">
-            <h2>ご挨拶</h2>
-<pre class="text-left">
-こんにちは。SOARER FESTIVAL 2019 実行委員会 / チーム纏 代表の纏です。こうやって信州でソアライベントを行うようになって今年で10年目。はじめは少ない台数で始まったこのイベントも全国オフというビックイベントを開催できるまでに成長でき非常に嬉しく思います。これもひとえに例年参加して下さる皆様のおかげだと思っております。帰り際『また来年も来るから～』の一言でここまでやれたんだなと思います。
-SOARER FESTIVAL 2019 in 信州 は10～40/SCの各型式のオーナー様が全国各地から集まり交流・情報交換を図ることを目的としております。またご家族連れの方、初参加の方でも気軽に参加できるようなイベント作りを心掛けております。会場内は食事の他、各アトラクション等もありますのでカーミーティングに観光にと一日を通して楽しめるかと思います。
-当イベントが皆様にとって有意義な時間となりより一層素敵なソアラライフになればと願っております！！！！
-お友達・ご家族お誘いの上信州に遊びに来ていただければと思います。
-</pre>
-<pre class="text-right">
-SOARER FESTIVAL 2019 実行委員会 / チーム纏 代表　纏
-</pre>
-            </div>
-         </div>
-      </div>
-</div>
+
 <div class="container" id="detail">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+    <div class="row mt-5">
+        <div class="col-md-8 offset-md-2">
             <div class="text-center infobox">
                 <h2>詳細情報</h2>
 <pre class="text-left">

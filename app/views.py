@@ -5,3 +5,6 @@ def index(request):
 
 def gallery(request):
     return render(request, 'app/gallery.html');
+
+def threemonth(request):
+    return render(request, 'app/threemonth.html');

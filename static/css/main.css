@@ -1,13 +1,24 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
+body {
+	font-family: 'Noto Sans JP', sans-serif;
+}
+
 pre {
     overflow: auto;
     white-space: pre-wrap;
     word-wrap: break-word;
-    margin-bottom: 0;
+    margin: 0px;
+    padding: 10px;
     border: 0;
+    background-color: #E1E2EF;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 .navbar {
     margin-bottom: 0;
+    background-color: #140661;
+    text-align: right;
 }
 
 .jumbotron {
@@ -15,7 +26,7 @@ pre {
     text-align: center;
     background-position: center center;
     background-image: url("/static/img/zenkoku2019-kv-newlogo-wide.png");
-    background-size: cover;
+    min-height: 400px;
 }
 .card {
     width: 100%;
@@ -98,7 +109,7 @@ h6 {
     margin: 10px;
 }
 
-.thumbnail {
+.img-thumbnail {
     background: #f5f5f5;
 }
 

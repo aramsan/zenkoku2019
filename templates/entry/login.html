@@ -1,0 +1,44 @@
+{% extends "base/base.html" %}
+{% block contents %}
+{% load static %}
+<script>
+$(function(){
+    jQuery("#loginform").validationEngine({
+        promptPosition: "topLeft:130"
+    });
+});
+</script>
+<div class="container mt-5">
+    {% if error %}
+    <div class="row p-4 text-left">
+        <div class="col-md-6 offset-md-3">
+            <div class="alert alert-danger">{{ error }}</div>
+        </div>
+    </div>
+    {% endif %}
+    <div class="row p-4">
+        <div class="col-md-6 offset-md-3">
+            <ul class="list-group" style="width: 100%;">
+                <li class="list-group-item list-group-item-info">ログイン</li>
+                <li class="list-group-item">
+                    <form action="/entry/login/request/" method="POST" id="loginform">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="username">メールアドレス</label>
+                            <input type="text" name="email" id="email" class="form-control" placeholder="メールアドレスを入力してください" data-validation-engine="validate[required,email]" value="{{ data.email }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">パスワード</label>
+                            <input type="password" name="password" id="password" class="form-control" placeholder="パスワードを入力してください" data-validation-engine="validate[required,minSize[8]]">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="ログインする" class="btn btn-primary form-control mt-4">
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+{% endblock contents %}
