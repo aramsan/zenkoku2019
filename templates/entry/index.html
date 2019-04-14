@@ -18,7 +18,7 @@ $(function () {
         <ul class="list-group list-group-flush">
             <li class="list-group-item">{{ entry.username }}</li>
         </ul>
-        <img class="card-img" src="{{ entry.picture }}">
+        <img class="card-img h-100" src="{{ entry.picture }}">
         <div class="card-body">
         {% if 'userid' in request.session %}
         {% if entry.userid == request.session.userid %}
