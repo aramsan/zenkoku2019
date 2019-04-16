@@ -3,8 +3,18 @@
 {% load static %}
 <script>
 $(function(){
-    jQuery("#signupform").validationEngine({
+    $('#signupform').validationEngine({
         promptPosition: "topLeft:130"
+    });
+    $('#picture').on('change', function(e) {
+        // 1枚だけ表示する
+        var file = e.target.files[0];
+
+        // ファイルのブラウザ上でのURLを取得する
+        var blobUrl = window.URL.createObjectURL(file);
+
+        // img要素に表示
+        $('#preview-picture').attr('src', blobUrl);
     });
 });
 </script>
@@ -56,7 +66,8 @@ $(function(){
                 </div>
                 <div class="form-group">
                     <label for="inputPicture">お車の画像</label>
-                    <input type="file" class="form-control" id="picture" name="picture" data-validation-engine="validate[required]"  value="{{ data.picture }}">
+                    <img src="{{ data.picture }}" id="preview-picture"class="preview w-100">
+                    <input type="file" class="form-control" id="picture" name="picture">
                 </div>
                 <div class="form-group">
                     <label for="number">参加人数</label>

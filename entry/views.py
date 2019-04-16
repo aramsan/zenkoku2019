@@ -61,6 +61,7 @@ def signuprequest(request):
         request.session['username'] = username
         request.session['userid'] = creation.userid
         request.session['email'] = creation.email
+        del request.session['data']
         return HttpResponseRedirect(reverse('entryindex'))
 
     return render(request, 'app/index.html')
@@ -80,7 +81,9 @@ def editrequest(request):
     if 'error' in request.session:   
         del request.session['error']
     username = request.POST.get('username')
-    filename = save_picture_file(request.FILES['picture'])
+    filename = ''
+    if 'picture' in request.FILES:
+        filename = save_picture_file(request.FILES['picture'])
     rawPassword = request.POST.get('password')        
     password = hashlib.sha256(rawPassword.encode('utf-8')).hexdigest()
     data = {
@@ -96,23 +99,24 @@ def editrequest(request):
         "message"  : request.POST.get('message')
     }
     request.session['data'] = data
-    creation = Entry(
-        userid    = request.session['userid'],
-        username  = username, 
-        email     = data['email'],
-        password  = data['password'],
-        picture   = data['picture'],
-        type      = data['type'],
-        grade     = data['grade'],
-        adult     = data['adult'],
-        child     = data['child'],
-        departure = data['departure'],
-        message   = data['message']
-    )
-    creation.save()
+    update = Entry.objects.filter(userid=request.session['userid']).first()
+    update.userid    = request.session['userid']
+    update.username  = username
+    update.email     = data['email']
+    update.password  = data['password']
+    update.type      = data['type']
+    update.grade     = data['grade']
+    update.adult     = data['adult']
+    update.child     = data['child']
+    update.departure = data['departure']
+    update.message   = data['message']
+    if data['picture']:
+        update.picture = data['picture']
+    update.save()
     request.session['username'] = username
-    request.session['userid'] = creation.userid
-    request.session['email'] = creation.email
+    request.session['userid'] = update.userid
+    request.session['email'] = update.email
+    del request.session['data']
     return HttpResponseRedirect(reverse('entryindex') + "#" + str(request.session['userid']))
 
 def login(request):
