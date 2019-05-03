@@ -182,6 +182,25 @@ def like(request, userid):
 
     return HttpResponseRedirect(reverse('entryindex') + "#" + str(userid))
 
+def admin(request):
+    if 'userid' in request.session:
+        admin = Entry.objects.filter(userid=request.session['userid']).first()
+        if admin.is_admin:
+            entry = Entry.objects.all().order_by('-userid')
+            stat = entry.aggregate(Sum('adult'), Sum('child'), Sum('after_adult'), Sum('after_child'))
+            stat_type = {
+                "soarer10" :  Entry.objects.filter(type='10ソアラ').count(),
+                "soarer20" :  Entry.objects.filter(type='20ソアラ').count(),
+                "soarer30" :  Entry.objects.filter(type='30ソアラ').count(),
+                "soarer40" :  Entry.objects.filter(type='40ソアラ').count(),
+                "other"    :  Entry.objects.filter(type='その他').count(),
+            }
+            return render(request, 'entry/admin.html',{'entry_list': entry, 'stat': stat, 'stat_type': stat_type})
+        else:
+            return HttpResponseRedirect(reverse('index'))    
+    else:
+        return HttpResponseRedirect(reverse('index'))
+
 
 def save_picture_file(f):
     filename = 'static/picture/' + datetime.datetime.today().strftime('%s') + f.name

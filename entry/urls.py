@@ -13,4 +13,5 @@ urlpatterns = [
      path('logout/', views.logout, name='logout'),
      path('comment/<int:userid>/', views.comment, name="comment"),
      path('like/<int:userid>/', views.like, name="like"),
+     path('admin/', views.admin, name="admin"),
 ]

@@ -116,7 +116,7 @@
             <div class="row">
                 <div class="col-md-8 offset-md-2 text-right">
                     <img src="{% static "/img/lunch.jpg" %}" class="img-fluid" alt="Responsive image"><br>
-                    2019.05.17
+                    2019.05.19
                 </div>
             </div>
 
@@ -127,7 +127,7 @@
                             {% if 'userid' not in request.session %}
                             <li class="list-group-item"><a href="/entry/signup/"><i class="fas fa-plus"></i>　参加表明</a></li>  
                             {% else %}
-                            <li class="list-group-item"><a href="mailto:minmin4257@yahoo.co.jp?subject=【お弁当の件】&body=【お名前】%0D%0A【個数】"><i class="fas fa-utensils"></i>　お弁当申し込み</a></li>  
+                            <li class="list-group-item"><a href="mailto:minmin4257@yahoo.co.jp?subject=【お弁当の件】&body=お世話になっておいます。{{ request.session.username }}です。%0D%0ASOARER FESTIVAL 2019のお弁当の申込みをします。%0D%0A%0D%0A【お名前】{{ request.session.username }}%0D%0A【個数】n個%0D%0A%0D%0A以上よろしくお願いいたします。"><i class="fas fa-utensils"></i>　お弁当申し込み</a></li>  
                             <li class="list-group-item"><a href="/entry/edit/"><i class="fas fa-beer"></i>　後夜祭参加表明</a></li>  
                             {% endif %}
                         </ul>
@@ -156,7 +156,7 @@
                             {% if 'userid' not in request.session %}
                             <li class="list-group-item"><a href="/entry/signup/"><i class="fas fa-plus"></i>　参加表明</a></li>  
                             {% else %}
-                            <li class="list-group-item"><a href="mailto:minmin4257@yahoo.co.jp?subject=【お弁当の件】&body=【お名前】%0D%0A【個数】"><i class="fas fa-utensils"></i>　お弁当申し込み</a></li>  
+                            <li class="list-group-item"><a href="mailto:minmin4257@yahoo.co.jp?subject=【お弁当の件】&body=お世話になっておいます。{{ request.session.username }}です。%0D%0ASOARER FESTIVAL 2019のお弁当の申込みをします。%0D%0A%0D%0A【お名前】{{ request.session.username }}%0D%0A【個数】n個%0D%0A%0D%0A以上よろしくお願いいたします。"><i class="fas fa-utensils"></i>　お弁当申し込み</a></li>  
                             <li class="list-group-item"><a href="/entry/edit/"><i class="fas fa-beer"></i>　後夜祭参加表明</a></li>  
                             {% endif %}
                         </ul>
@@ -179,13 +179,13 @@
 　・うまく申し込めない方は、以下の要領でお申し込みください。
 　　・宛先に minmin4257@yahoo.co.jp を指定してください。
 　　・件名は【お弁当の件】とし、本文には参加表明時の【お名前】とお弁当の【個数】を明記してください。
-・締め切りは6月末日とさせて頂きます。
+・締め切りは6月30日とさせて頂きます。
 
 ※お弁当の画像はあくまでもイメージです(^^♪
 </pre>
                         </div>
                         <div class="text-center infobox-body">
-                            <a class="btn btn-primary btn-lg mt-3 mb-3" href="mailto:minmin4257@yahoo.co.jp?subject=【お弁当の件】&body=【お名前】%0D%0A【個数】"><i class="fas fa-utensils"></i>　お弁当お申込み</a>
+                            <a class="btn btn-primary btn-lg mt-3 mb-3" href="mailto:minmin4257@yahoo.co.jp?subject=【お弁当の件】&body=お世話になっておいます。{{ request.session.username }}です。%0D%0ASOARER FESTIVAL 2019のお弁当の申込みをします。%0D%0A%0D%0A【お名前】{{ request.session.username }}%0D%0A【個数】n個%0D%0A%0D%0A以上よろしくお願いいたします。"><i class="fas fa-utensils"></i>　お弁当お申込み</a>
                             <img src="{% static "/img/lunch-box.jpg" %}" class="img-fluid" alt="Responsive image">
                         </div>
                     </div>
@@ -199,7 +199,7 @@
                             {% if 'userid' not in request.session %}
                             <li class="list-group-item"><a href="/entry/signup/"><i class="fas fa-plus"></i>　参加表明</a></li>  
                             {% else %}
-                            <li class="list-group-item"><a href="mailto:minmin4257@yahoo.co.jp?subject=【お弁当の件】&body=【お名前】%0D%0A【個数】"><i class="fas fa-utensils"></i>　お弁当申し込み</a></li>  
+                            <li class="list-group-item"><a href="mailto:minmin4257@yahoo.co.jp?subject=【お弁当の件】&body=お世話になっておいます。{{ request.session.username }}です。%0D%0ASOARER FESTIVAL 2019のお弁当の申込みをします。%0D%0A%0D%0A【お名前】{{ request.session.username }}%0D%0A【個数】n個%0D%0A%0D%0A以上よろしくお願いいたします。"><i class="fas fa-utensils"></i>　お弁当申し込み</a></li>  
                             <li class="list-group-item"><a href="/entry/edit/"><i class="fas fa-beer"></i>　後夜祭参加表明</a></li>  
                             {% endif %}
                         </ul>
@@ -239,7 +239,7 @@
                             {% if 'userid' not in request.session %}
                             <li class="list-group-item"><a href="/entry/signup/"><i class="fas fa-plus"></i>　参加表明</a></li>  
                             {% else %}
-                            <li class="list-group-item"><a href="mailto:minmin4257@yahoo.co.jp?subject=【お弁当の件】&body=【お名前】%0D%0A【個数】"><i class="fas fa-utensils"></i>　お弁当申し込み</a></li>  
+                            <li class="list-group-item"><a href="mailto:minmin4257@yahoo.co.jp?subject=【お弁当の件】&body=お世話になっておいます。{{ request.session.username }}です。%0D%0ASOARER FESTIVAL 2019のお弁当の申込みをします。%0D%0A%0D%0A【お名前】{{ request.session.username }}%0D%0A【個数】n個%0D%0A%0D%0A以上よろしくお願いいたします。"><i class="fas fa-utensils"></i>　お弁当申し込み</a></li>  
                             <li class="list-group-item"><a href="/entry/edit/"><i class="fas fa-beer"></i>　後夜祭参加表明</a></li>  
                             {% endif %}
                         </ul>
@@ -265,7 +265,7 @@
 
 18：30に最寄ホテル(ルートイン塩尻北店、チサンイン塩尻北インター店)より送迎バスが出ます。
 最寄りホテル以外に宿泊の方で後夜祭に参加される方は纏までご連絡ください！！(場所についてご案内いたします。)
-募集締め切りは6月31日です。（但し、定員となり次第募集を締め切ります。）
+募集締め切りは6月30日です。（但し、定員となり次第募集を締め切ります。）
 夏休み最初の連休となりますので早めに宿泊先を予約することをお勧めします。
 ご不明な点などございましたらお近くの信州メンバー及び纏までご連絡ください！！！
 
@@ -273,7 +273,11 @@
 </pre>
                         </div>
                         <div class="text-center infobox-body">
+                            {% if 'userid' not in request.session %}
+                            <a class="btn btn-primary btn-lg mt-3 mb-3" href="/entry/signup/" target="_blank"><i class="fas fa-beer"></i>　後夜祭参加表明</a>
+                            {% else %}
                             <a class="btn btn-primary btn-lg mt-3 mb-3" href="/entry/edit/" target="_blank"><i class="fas fa-beer"></i>　後夜祭参加表明</a>
+                            {% endif %}
                             <a href="http://www.tirol.gr.jp/eat/" target="_blank"><img src="{% static "/img/lunch-afterparty.jpg" %}" class="img-fluid" alt="Responsive image"></a>
                         </div>
                     </div>
@@ -287,7 +291,7 @@
                             {% if 'userid' not in request.session %}
                             <li class="list-group-item"><a href="/entry/signup/"><i class="fas fa-plus"></i>　参加表明</a></li>  
                             {% else %}
-                            <li class="list-group-item"><a href="mailto:minmin4257@yahoo.co.jp?subject=【お弁当の件】&body=【お名前】%0D%0A【個数】"><i class="fas fa-utensils"></i>　お弁当申し込み</a></li>  
+                            <li class="list-group-item"><a href="mailto:minmin4257@yahoo.co.jp?subject=【お弁当の件】&body=お世話になっておいます。{{ request.session.username }}です。%0D%0ASOARER FESTIVAL 2019のお弁当の申込みをします。%0D%0A%0D%0A【お名前】{{ request.session.username }}%0D%0A【個数】n個%0D%0A%0D%0A以上よろしくお願いいたします。"><i class="fas fa-utensils"></i>　お弁当申し込み</a></li>  
                             <li class="list-group-item"><a href="/entry/edit/"><i class="fas fa-beer"></i>　後夜祭参加表明</a></li>  
                             {% endif %}
                         </ul>
@@ -302,7 +306,7 @@
 						    <h2 class="ml-4">前夜祭開催の噂も</h2>
 <pre class="text-left pl-4 pr-4">
 お問い合わせが多かった前夜祭ですが、かるーく開催を予定しております(^^♪
-後夜祭ほど大々的には募集致しませんので各団体、お友達同士で参加されます人数を取りまとめて頂いて前夜祭係もしくは纏までご連絡下さい。
+後夜祭ほど大々的には募集致しませんので各団体、お友達同士で参加されます人数を取りまとめて頂いて（6月末までに）纏までご連絡下さい。
 </pre>
                         </div>
                     </div>
@@ -316,7 +320,7 @@
                             {% if 'userid' not in request.session %}
                             <li class="list-group-item"><a href="/entry/signup/"><i class="fas fa-plus"></i>　参加表明</a></li>  
                             {% else %}
-                            <li class="list-group-item"><a href="mailto:minmin4257@yahoo.co.jp?subject=【お弁当の件】&body=【お名前】%0D%0A【個数】"><i class="fas fa-utensils"></i>　お弁当申し込み</a></li>  
+                            <li class="list-group-item"><a href="mailto:minmin4257@yahoo.co.jp?subject=【お弁当の件】&body=お世話になっておいます。{{ request.session.username }}です。%0D%0ASOARER FESTIVAL 2019のお弁当の申込みをします。%0D%0A%0D%0A【お名前】{{ request.session.username }}%0D%0A【個数】n個%0D%0A%0D%0A以上よろしくお願いいたします。"><i class="fas fa-utensils"></i>　お弁当申し込み</a></li>  
                             <li class="list-group-item"><a href="/entry/edit/"><i class="fas fa-beer"></i>　後夜祭参加表明</a></li>  
                             {% endif %}
                         </ul>

@@ -1,0 +1,96 @@
+{% extends "base/base.html" %}
+{% block contents %}
+{% load static %}
+{% if entry_list %}
+<div class="row pt-4 text-center">
+    <div class ="col-md-4 offset-md-4">
+        <table class="table table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">大人</th>
+                    <th scope="col">子供</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">参加者</th>
+                    <td>{{ stat.adult__sum }}人</td>
+                    <td>{{ stat.child__sum }}人</td>
+                </tr>
+                <tr>
+                    <th scope="row">後夜祭</th>
+                    <td>{{ stat.after_adult__sum }}人</td>
+                    <td>{{ stat.after_child__sum }}人</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered table-sm mt-4">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">10</th>
+                    <th scope="col">20</th>
+                    <th scope="col">30</th>
+                    <th scope="col">40</th>
+                    <th scope="col">他</th>
+                    <th scope="col">合計</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">車種別</th>
+                    <td>{{ stat_type.soarer10 }}台</td>
+                    <td>{{ stat_type.soarer20 }}台</td>
+                    <td>{{ stat_type.soarer30 }}台</td>
+                    <td>{{ stat_type.soarer40 }}台</td>
+                    <td>{{ stat_type.other }}台</td>
+                    <td>{{ entry_list.count }}台</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row pt-4 text-center">
+    <div class ="col-12">
+        <table class="table table-bordered table-sm table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">ハンドルネーム</th>
+                    <th scope="col">メールアドレス</th>
+                    <th scope="col">型式</th>
+                    <th scope="col">グレード</th>
+                    <th scope="col">大人</th>
+                    <th scope="col">子供</th>
+                    <th scope="col">🍻大人</th>
+                    <th scope="col">🍻子供</th>
+                    <th scope="col">出発地</th>
+                    <th scope="col">メッセージ</th>
+                    <th scope="col">管理者</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in entry_list %}
+                <tr>
+                    <td><a href="/entry/#{{ entry.userid }}">{{ entry.userid }}</a></td>
+                    <td><a href="/entry/#{{ entry.userid }}">{{ entry.username }}</a></td>
+                    <td><a href="mailto:{{ entry.email }}">{{ entry.email }}</a></td>
+                    <td>{{ entry.type }}</td>
+                    <td>{{ entry.grade }}</td>
+                    <td>{{ entry.adult }}</td>
+                    <td>{{ entry.child }}</td>
+                    <td>{{ entry.after_adult }}</td>
+                    <td>{{ entry.after_child }}</td>
+                    <td>{{ entry.departure }}</td>
+                    <td>{{ entry.message|truncatechars:10 }}</td>
+                    <td>{{ entry.is_admin }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %}
+{% endblock contents %}
