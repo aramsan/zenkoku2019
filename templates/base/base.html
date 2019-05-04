@@ -103,6 +103,13 @@
           <li class="nav-item">
             <a class="nav-link" href="/entry/">参加者リスト</a>
           </li>
+          {% if 'is_admin' in request.session %}
+          {% if request.session.is_admin %}
+          <li class="nav-item">
+            <a class="nav-link" href="/entry/admin/">参加者リスト(管理者用)</a>
+          </li>
+          {% endif %}
+          {% endif %}
           <li class="nav-item">
             <a class="nav-link" href="/bbs/">お問い合わせ掲示板</a>
           </li>

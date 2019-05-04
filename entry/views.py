@@ -142,6 +142,7 @@ def loginrequest(request):
         request.session['username'] = entry.username
         request.session['userid'] = entry.userid
         request.session['email'] = entry.email
+        request.session['is_admin'] = entry.is_admin
         return HttpResponseRedirect(reverse('index'))
     else:
         error='メールアドレス、または、パスワードが間違っています'

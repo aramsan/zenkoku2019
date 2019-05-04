@@ -1,6 +1,11 @@
 from django.shortcuts import render
+from entry.models import Entry
 
 def index(request):
+    if 'userid' in request.session:
+        entry = Entry.objects.filter(userid=request.session['userid']).first()
+        if entry.is_admin:
+            request.session['is_admin'] = entry.is_admin
     return render(request, 'app/index.html')
 
 def gallery(request):

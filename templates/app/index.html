@@ -14,6 +14,11 @@
             {% endif %}
             <li class="list-group-item"><a href="/lunch"><i class="fas fa-utensils"></i>　お弁当申し込み</a></li>
             <li class="list-group-item"><a href="/entry/"><i class="fas fa-list"></i>　参加者リスト</a></li>
+            {% if 'is_admin' in request.session %}
+            {% if request.session.is_admin %}
+            <li class="list-group-item"><a href="/entry/admin/"><i class="fas fa-list"></i>　参加者リスト(管理者用)</a></li>
+            {% endif %}
+            {% endif %}
             <li class="list-group-item"><a href="/threemonth"><i class="fas fa-microphone"></i>　代表の挨拶</a></li>
             <li class="list-group-item"><a href="/bbs"><i class="fas fa-question"></i>　問い合わせ掲示板</a></li>
             <li class="list-group-item"><a href="/gallery"><i class="far fa-images"></i>　ギャラリー</a></li>

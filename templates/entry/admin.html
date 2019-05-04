@@ -2,6 +2,15 @@
 {% block contents %}
 {% load static %}
 {% if entry_list %}
+
+<script>
+$(function () {
+    {% for entry in entry_list %}
+    $('[data-toggle="tooltip{{ entry.userid }}"]').tooltip();
+    {% endfor %}
+})
+</script>
+
 <div class="row pt-4 text-center">
     <div class ="col-md-4 offset-md-4">
         <table class="table table-bordered table-sm">
@@ -84,7 +93,7 @@
                     <td>{{ entry.after_adult }}</td>
                     <td>{{ entry.after_child }}</td>
                     <td>{{ entry.departure }}</td>
-                    <td>{{ entry.message|truncatechars:10 }}</td>
+                    <td><span data-toggle="tooltip{{ entry.userid }}" data-placement="right" data-html="true" title="{{ entry.message|linebreaksbr }}">{{ entry.message|truncatechars:10 }}</span></td>
                     <td>{{ entry.is_admin }}</td>
                 </tr>
                 {% endfor %}
