@@ -84,6 +84,10 @@ h6 {
     background-color: #140661;
 }
 
+.infobox-body {
+    background-color: #E1E2EF;
+}
+
 .list-item {
     background: #140661;
     min-height: 150px;

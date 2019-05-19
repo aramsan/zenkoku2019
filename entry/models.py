@@ -9,9 +9,12 @@ class Entry(models.Model):
     grade = models.CharField(max_length=100)
     adult = models.IntegerField(default = 1)
     child = models.IntegerField(default = 0)
+    after_adult = models.IntegerField(default = 0)
+    after_child = models.IntegerField(default = 0)
     picture = models.CharField(max_length=256, default=None)
     departure = models.CharField(max_length=100)
     message = models.TextField(blank=True)
+    is_admin = models.BooleanField(default=False)
     time = models.DateTimeField(auto_now=True)
 
     def comments(self):

@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+  	<head>
+		<!-- Required meta tags -->
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		{% load static %}
+	
+		<title>全国オフ当日の食事も楽しもう | SOARER FESTIVAL 2019</title>
+		<!-- OGP -->
+		<meta property="og:title" content="全国オフ当日の食事も楽しもう。SOARER FESTIVAL 2019">
+		<meta property="og:type" content="website">
+		<meta property="og:description" content="全国オフ当日の食事も楽しもう。SOARER FESTIVAL 2019は2019年7月14日に長野県塩尻市チロルの森で開催します。">
+		<meta property="og:url" content="https://team-matoi.com/lunch/">
+		<meta property="og:image" content="https://team-matoi.com/static/img/lunch.jpg">
+		<meta property="og:site_name" content="SOARER FESTIVAL 2019">
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@aramsan" />
+		<meta property="og:url" content="https://team-matoi.com/lunch/" />
+		<meta property="og:title" content="全国オフ当日の食事も楽しもう。SOARER FESTIVAL 2019" />
+		<meta property="og:description" content="全国オフ当日の食事も楽しもう。SOARER FESTIVAL 2019は2019年7月14日に長野県塩尻市チロルの森で開催します。" />
+		<meta property="og:image" content="https://team-matoi.com/static/img/lunch.jpg" />
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+		<script src="{% static "js/jquery.validationEngine-ja.js" %}"></script>
+		<script src="{% static "js/jquery.validationEngine.js" %}"></script>
+		<script src="{% static "js/jquery.flexslider.js" %}"></script>
+		<link href="{% static "css/flexslider.css"%} rel="stylesheet" type="text/css" />
+		<script src="{% static "js/strftime.js" %}"></script>
+		<script src="{% static "js/sprintf.js" %}"></script>
+		<script src="{% static "js/micro-location.js" %}"></script>
+		<script src="{% static "js/micro_dispatcher.js" %}"></script>
+		<link href="{% static "css/main.css" %}?asdf" rel="stylesheet" type="text/css" media="screen" />
+		<link href="{% static "css/validationEngine.jquery.css" %}" rel="stylesheet" type="text/css" />
+		<script src="{% static "js/main.js" %}"></script>
+		<script type="text/javascript" src="{% static "/js/jquery.timeago.js" %}"></script>
+		<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<script>
+		$(document).ready(function(){
+		jQuery.timeago.settings.strings = {
+			prefixAgo: "",
+			prefixFromNow: "今から",
+			suffixAgo: "前",
+			suffixFromNow: "後",
+			seconds: "1 分未満",
+			minute: "約 1 分",
+			minutes: "%d 分",
+			hour: "約 1 時間",
+			hours: "約 %d 時間",
+			day: "約 1 日",
+			days: "約 %d 日",
+			month: "約 1 ヶ月",
+			months: "約 %d ヶ月",
+			year: "約 1 年",
+			years: "約 %d 年",
+			wordSeparator: ""
+		};
+		$('abbr.timeago').timeago();
+		});
+		</script>
+  	</head>
+  	<body>
+    	<nav class="navbar navbar-dark">
+      		<a class="navbar-brand" href="/">SOARER FESTIVAL 2019</a>
+      		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsMenu" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+        		<span class="navbar-toggler-icon"></span>
+      		</button>
+
+			<div class="collapse navbar-collapse" id="navbarsMenu">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<span class="navbar-text">
+							{% if 'userid' in request.session %}{{ request.session.username }}さん{% endif %}
+						</span>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/">トップページ</a>
+					</li>
+					{% if 'userid' in request.session %}
+					<li class="nav-item">
+                        <a class="nav-link" href="/entry/logout/">ログアウト</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/entry/edit/">参加表明修正</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/lunch/">お弁当申し込み</a>
+                    </li>
+					{% else %}
+					<li class="nav-item">
+						<a class="nav-link" href="/entry/login/">ログイン</a>
+					</li>
+					{% endif %}
+					<li class="nav-item">
+						<a class="nav-link" href="/entry/">参加者リスト</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/bbs/">お問い合わせ掲示板</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/gallery">ギャラリー</a>
+					</li>
+				</ul>
+			</div>
+   		</nav>
+		<main>
+            <div class="row">
+                <div class="col-md-8 offset-md-2 text-right">
+                    <img src="{% static "/img/lunch.jpg" %}" class="img-fluid" alt="Responsive image"><br>
+                    2019.05.19
+                </div>
+            </div>
+
+            <div class="container">
+				<div class="row mt-4">
+                    <div class="col-md-4 offset-md-4">
+                        <ul class="list-group text-center" style="width: 100%;">
+                            {% if 'userid' not in request.session %}
+                            <li class="list-group-item"><a href="/entry/signup/"><i class="fas fa-plus"></i>　参加表明</a></li>  
+                            {% else %}
+                            <li class="list-group-item"><a href="mailto:minmin4257@yahoo.co.jp?subject=【お弁当の件】&body=お世話になっておいます。{{ request.session.username }}です。%0D%0ASOARER FESTIVAL 2019のお弁当の申込みをします。%0D%0A%0D%0A【お名前】{{ request.session.username }}%0D%0A【個数】n個%0D%0A%0D%0A以上よろしくお願いいたします。"><i class="fas fa-utensils"></i>　お弁当申し込み</a></li>  
+                            <li class="list-group-item"><a href="/entry/edit/"><i class="fas fa-beer"></i>　後夜祭参加表明</a></li>  
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+			</div>
+			
+			<div class="container">
+				<div class="row mt-5 mb-5">
+					<div class="col-md-8 offset-md-2">
+						<div class="text-left infobox">
+						    <h2 class="ml-4">当日のお食事</h2>
+<pre class="text-left pl-4 pr-4">
+さて、だんだんSOARER FESTIVAL 2019が近づいていまいりました。そろそろ当日のお食事についても考えるようになってきた方もいるのではないでしょうか？
+今回は、そういった方や、当日行ってから考えると思っている人にも、どんな食事があるかご説明します。
+</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+
+            <div class="container">
+				<div class="row mt-4">
+                    <div class="col-md-4 offset-md-4">
+                        <ul class="list-group text-center" style="width: 100%;">
+                            {% if 'userid' not in request.session %}
+                            <li class="list-group-item"><a href="/entry/signup/"><i class="fas fa-plus"></i>　参加表明</a></li>  
+                            {% else %}
+                            <li class="list-group-item"><a href="mailto:minmin4257@yahoo.co.jp?subject=【お弁当の件】&body=お世話になっておいます。{{ request.session.username }}です。%0D%0ASOARER FESTIVAL 2019のお弁当の申込みをします。%0D%0A%0D%0A【お名前】{{ request.session.username }}%0D%0A【個数】n個%0D%0A%0D%0A以上よろしくお願いいたします。"><i class="fas fa-utensils"></i>　お弁当申し込み</a></li>  
+                            <li class="list-group-item"><a href="/entry/edit/"><i class="fas fa-beer"></i>　後夜祭参加表明</a></li>  
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+			</div>
+
+			<div class="container" id="detail">
+				<div class="row mt-5 mb-5">
+					<div class="col-md-8 offset-md-2">
+						<div class="text-left infobox">
+						    <h2 class="ml-4">お弁当</h2>
+<pre class="text-left pl-4 pr-4">
+会場内で一番簡単、かつ効率的にお食事がとれる方法がお弁当です。このお弁当ですが、前回の開催時に初めて提供したところ大変ご好評だったため今回も提供しようということで、実行員会が会場様と交渉した結果、会場様の計らいで今回もご用意できることとなりました。
+お申込み頂いた方全員にご提供したいのですが、大変申し訳ございませんが、ご用意できる数に限りがあります。予定数になりましたらご予約を打ち切らせていただきますのでご理解の程よろしくお願いいたします。
+
+・一食(お茶付き)500円となります。
+・申込みは、メールにて受けて受けております。
+　・下記「お弁当お申込み」ボタンよりお申し込みください。
+　・うまく申し込めない方は、以下の要領でお申し込みください。
+　　・宛先に minmin4257@yahoo.co.jp を指定してください。
+　　・件名は【お弁当の件】とし、本文には参加表明時の【お名前】とお弁当の【個数】を明記してください。
+・締め切りは6月30日とさせて頂きます。
+
+※お弁当の画像はあくまでもイメージです(^^♪
+</pre>
+                        </div>
+                        <div class="text-center infobox-body">
+                            <a class="btn btn-primary btn-lg mt-3 mb-3" href="mailto:minmin4257@yahoo.co.jp?subject=【お弁当の件】&body=お世話になっておいます。{{ request.session.username }}です。%0D%0ASOARER FESTIVAL 2019のお弁当の申込みをします。%0D%0A%0D%0A【お名前】{{ request.session.username }}%0D%0A【個数】n個%0D%0A%0D%0A以上よろしくお願いいたします。"><i class="fas fa-utensils"></i>　お弁当お申込み</a>
+                            <img src="{% static "/img/lunch-box.jpg" %}" class="img-fluid" alt="Responsive image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           <div class="container">
+				<div class="row mt-4">
+                    <div class="col-md-4 offset-md-4">
+                        <ul class="list-group text-center" style="width: 100%;">
+                            {% if 'userid' not in request.session %}
+                            <li class="list-group-item"><a href="/entry/signup/"><i class="fas fa-plus"></i>　参加表明</a></li>  
+                            {% else %}
+                            <li class="list-group-item"><a href="mailto:minmin4257@yahoo.co.jp?subject=【お弁当の件】&body=お世話になっておいます。{{ request.session.username }}です。%0D%0ASOARER FESTIVAL 2019のお弁当の申込みをします。%0D%0A%0D%0A【お名前】{{ request.session.username }}%0D%0A【個数】n個%0D%0A%0D%0A以上よろしくお願いいたします。"><i class="fas fa-utensils"></i>　お弁当申し込み</a></li>  
+                            <li class="list-group-item"><a href="/entry/edit/"><i class="fas fa-beer"></i>　後夜祭参加表明</a></li>  
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+			</div>
+			<div class="container" id="detail">
+				<div class="row mt-5 mb-5">
+					<div class="col-md-8 offset-md-2">
+						<div class="text-left infobox">
+						    <h2 class="ml-4">園内でのお食事</h2>
+<pre class="text-left pl-4 pr-4">
+会場であるチロルの森の園内でもフードコートや焼き肉があり、様々なお食事をとることができます。ただし、焼き肉につきましてはご自身で予約していただく必要がございますのでご注意ください。
+
+■ 焼肉について…
+　・１５名様以上で焼肉の予約ができます。
+　・焼肉のご予約をされる方は予約の際に【ソアラのイベントの～】と伝えて頂けるとスムーズに予約できるかと思います。
+　・予約された方は実行委員会までご連絡を頂けますと助かります。
+
+■ フードコートについて
+　・焼肉以外にも洋食から和食、ファーストフードまで様々な職人自慢のチロルの味を楽しむことができるお店があります。
+　・詳しくは園内マップ及びチロルの森のサイトからご確認ください。
+</pre>
+                        </div>
+                        <div class="text-center infobox-body">
+                            <a class="btn btn-primary btn-lg mt-3 mb-3" href="http://www.tirol.gr.jp/eat/" target="_blank">チロルの森のサイトへ</a>
+                            <a href="http://www.tirol.gr.jp/eat/" target="_blank"><img src="{% static "/img/lunch-tirol.jpg" %}" class="img-fluid" alt="Responsive image"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           <div class="container">
+				<div class="row mt-4">
+                    <div class="col-md-4 offset-md-4">
+                        <ul class="list-group text-center" style="width: 100%;">
+                            {% if 'userid' not in request.session %}
+                            <li class="list-group-item"><a href="/entry/signup/"><i class="fas fa-plus"></i>　参加表明</a></li>  
+                            {% else %}
+                            <li class="list-group-item"><a href="mailto:minmin4257@yahoo.co.jp?subject=【お弁当の件】&body=お世話になっておいます。{{ request.session.username }}です。%0D%0ASOARER FESTIVAL 2019のお弁当の申込みをします。%0D%0A%0D%0A【お名前】{{ request.session.username }}%0D%0A【個数】n個%0D%0A%0D%0A以上よろしくお願いいたします。"><i class="fas fa-utensils"></i>　お弁当申し込み</a></li>  
+                            <li class="list-group-item"><a href="/entry/edit/"><i class="fas fa-beer"></i>　後夜祭参加表明</a></li>  
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+			</div>
+
+			<div class="container" id="detail">
+				<div class="row mt-5 mb-5">
+					<div class="col-md-8 offset-md-2">
+						<div class="text-left infobox">
+						    <h2 class="ml-4">続きは後夜祭で</h2>
+<pre class="text-left pl-4 pr-4">
+会場であるチロルの森からは、毎回ご厚意により駐車場を使わせていただいております。そして、閉園時間である17時までに完全撤収を行うために、16時までには閉会するスケジュールになっています。毎回皆様のご協力があり、17時の完全撤収には間に合っておりますので、今回もご協力のほどよろしくお願いいたします。
+しかし、せっかく全国各地から年1回のイベントとして集まっているので、この昼間の時間だけでは物足りないという方も多くいらっしゃると思います。そのご要望を叶えるのが後夜祭です。
+
+そう、信州でオフ会って言ったらやっぱこれですよね？
+そんな訳でどちらがメインか判りませんが後夜祭のご案内です。
+
+日時　7月14日(日)　19：00～
+場所　安喜センター　(例年通りの場所です(^^♪)
+金額　大人 5,000円/人 子供 2,500円/人 飲み放題込み
+
+18：30に最寄ホテル(ルートイン塩尻北店、チサンイン塩尻北インター店)より送迎バスが出ます。
+最寄りホテル以外に宿泊の方で後夜祭に参加される方は纏までご連絡ください！！(場所についてご案内いたします。)
+募集締め切りは6月30日です。（但し、定員となり次第募集を締め切ります。）
+夏休み最初の連休となりますので早めに宿泊先を予約することをお勧めします。
+ご不明な点などございましたらお近くの信州メンバー及び纏までご連絡ください！！！
+
+お申込みは、参加表明に後夜祭の参加人数を入れられるようにしてありますので、そちらから設定をしてください。
+</pre>
+                        </div>
+                        <div class="text-center infobox-body">
+                            {% if 'userid' not in request.session %}
+                            <a class="btn btn-primary btn-lg mt-3 mb-3" href="/entry/signup/" target="_blank"><i class="fas fa-beer"></i>　後夜祭参加表明</a>
+                            {% else %}
+                            <a class="btn btn-primary btn-lg mt-3 mb-3" href="/entry/edit/" target="_blank"><i class="fas fa-beer"></i>　後夜祭参加表明</a>
+                            {% endif %}
+                            <a href="http://www.tirol.gr.jp/eat/" target="_blank"><img src="{% static "/img/lunch-afterparty.jpg" %}" class="img-fluid" alt="Responsive image"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+				<div class="row mt-4">
+                    <div class="col-md-4 offset-md-4">
+                        <ul class="list-group text-center" style="width: 100%;">
+                            {% if 'userid' not in request.session %}
+                            <li class="list-group-item"><a href="/entry/signup/"><i class="fas fa-plus"></i>　参加表明</a></li>  
+                            {% else %}
+                            <li class="list-group-item"><a href="mailto:minmin4257@yahoo.co.jp?subject=【お弁当の件】&body=お世話になっておいます。{{ request.session.username }}です。%0D%0ASOARER FESTIVAL 2019のお弁当の申込みをします。%0D%0A%0D%0A【お名前】{{ request.session.username }}%0D%0A【個数】n個%0D%0A%0D%0A以上よろしくお願いいたします。"><i class="fas fa-utensils"></i>　お弁当申し込み</a></li>  
+                            <li class="list-group-item"><a href="/entry/edit/"><i class="fas fa-beer"></i>　後夜祭参加表明</a></li>  
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+			</div>
+
+			<div class="container" id="detail">
+				<div class="row mt-5 mb-5">
+					<div class="col-md-8 offset-md-2">
+						<div class="text-left infobox">
+						    <h2 class="ml-4">前夜祭開催の噂も</h2>
+<pre class="text-left pl-4 pr-4">
+お問い合わせが多かった前夜祭ですが、かるーく開催を予定しております(^^♪
+後夜祭ほど大々的には募集致しませんので各団体、お友達同士で参加されます人数を取りまとめて頂いて（6月末までに）纏までご連絡下さい。
+</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+				<div class="row mt-4">
+                    <div class="col-md-4 offset-md-4">
+                        <ul class="list-group text-center" style="width: 100%;">
+                            {% if 'userid' not in request.session %}
+                            <li class="list-group-item"><a href="/entry/signup/"><i class="fas fa-plus"></i>　参加表明</a></li>  
+                            {% else %}
+                            <li class="list-group-item"><a href="mailto:minmin4257@yahoo.co.jp?subject=【お弁当の件】&body=お世話になっておいます。{{ request.session.username }}です。%0D%0ASOARER FESTIVAL 2019のお弁当の申込みをします。%0D%0A%0D%0A【お名前】{{ request.session.username }}%0D%0A【個数】n個%0D%0A%0D%0A以上よろしくお願いいたします。"><i class="fas fa-utensils"></i>　お弁当申し込み</a></li>  
+                            <li class="list-group-item"><a href="/entry/edit/"><i class="fas fa-beer"></i>　後夜祭参加表明</a></li>  
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+			</div>
+
+			<div class="container">
+                <div class="row mt-4">
+                <div class="col-12">
+                    <p class="text-center "><a href="/">トップページへ</a></p>
+                </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                <div class="col-12">
+                    <p class="text-center "><small>運営:SOARER FESTIVAL 2019 実行委員会 / チーム纏</small></p>
+                </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

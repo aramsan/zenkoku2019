@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.db.models import Sum
 from .models import Entry, Comment, Like
 
 import hashlib
@@ -8,7 +9,8 @@ import datetime
 
 def index(request):
     entry = Entry.objects.all().order_by('-userid')
-    return render(request, 'entry/index.html',{'entry_list': entry})
+    stat = entry.aggregate(Sum('adult'), Sum('child'), Sum('after_adult'), Sum('after_child'))
+    return render(request, 'entry/index.html',{'entry_list': entry, 'stat': stat})
 
 def signup(request):
     error = {}
@@ -37,6 +39,8 @@ def signuprequest(request):
         "grade"    : request.POST.get('grade'),
         "adult"    : request.POST.get('adult'),
         "child"    : request.POST.get('child'),
+        "after_adult" : request.POST.get('after_adult'),
+        "after_child" : request.POST.get('after_child'),
         "departure": request.POST.get('departure'),
         "message"  : request.POST.get('message')
     }
@@ -54,6 +58,8 @@ def signuprequest(request):
             grade     = data['grade'],
             adult     = data['adult'],
             child     = data['child'],
+            after_adult = data['after_adult'],
+            after_child = data['after_child'],
             departure = data['departure'],
             message   = data['message']
         )
@@ -95,6 +101,8 @@ def editrequest(request):
         "grade"    : request.POST.get('grade'),
         "adult"    : request.POST.get('adult'),
         "child"    : request.POST.get('child'),
+        "after_adult" : request.POST.get('after_adult'),
+        "after_child" : request.POST.get('after_child'),
         "departure": request.POST.get('departure'),
         "message"  : request.POST.get('message')
     }
@@ -108,6 +116,8 @@ def editrequest(request):
     update.grade     = data['grade']
     update.adult     = data['adult']
     update.child     = data['child']
+    update.after_adult = data['after_adult']
+    update.after_child = data['after_child']
     update.departure = data['departure']
     update.message   = data['message']
     if data['picture']:
@@ -132,6 +142,7 @@ def loginrequest(request):
         request.session['username'] = entry.username
         request.session['userid'] = entry.userid
         request.session['email'] = entry.email
+        request.session['is_admin'] = entry.is_admin
         return HttpResponseRedirect(reverse('index'))
     else:
         error='メールアドレス、または、パスワードが間違っています'
@@ -171,6 +182,25 @@ def like(request, userid):
         creation.save()
 
     return HttpResponseRedirect(reverse('entryindex') + "#" + str(userid))
+
+def admin(request):
+    if 'userid' in request.session:
+        admin = Entry.objects.filter(userid=request.session['userid']).first()
+        if admin.is_admin:
+            entry = Entry.objects.all().order_by('-userid')
+            stat = entry.aggregate(Sum('adult'), Sum('child'), Sum('after_adult'), Sum('after_child'))
+            stat_type = {
+                "soarer10" :  Entry.objects.filter(type='10ソアラ').count(),
+                "soarer20" :  Entry.objects.filter(type='20ソアラ').count(),
+                "soarer30" :  Entry.objects.filter(type='30ソアラ').count(),
+                "soarer40" :  Entry.objects.filter(type='40ソアラ').count(),
+                "other"    :  Entry.objects.filter(type='その他').count(),
+            }
+            return render(request, 'entry/admin.html',{'entry_list': entry, 'stat': stat, 'stat_type': stat_type})
+        else:
+            return HttpResponseRedirect(reverse('index'))    
+    else:
+        return HttpResponseRedirect(reverse('index'))
 
 
 def save_picture_file(f):
