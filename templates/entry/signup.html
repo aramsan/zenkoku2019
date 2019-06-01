@@ -91,7 +91,7 @@ $(function(){
                     <label for="number">後夜祭 参加人数</label>
                     <br><small>※申込者が規定の40名を超えため、申込み受付終了といたします。</small><br>
                     大人<select name="after_adult">
-                        <option value="1"{% if data.after_adult == "0" %} selected{% endif %}>0人</option>
+                        <option value="0"{% if data.after_adult == "0" %} selected{% endif %}>0人</option>
                     </select>
                     　小人<select name="after_child">
                         <option value="0"{% if data.after_child == "0" %} selected{% endif %}>0人</option>
