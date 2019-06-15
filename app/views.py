@@ -16,3 +16,6 @@ def threemonth(request):
 
 def lunch(request):
     return render(request, 'app/lunch.html')
+
+def exhibition(request):
+    return render(request, 'app/exhibition.html')

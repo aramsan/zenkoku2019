@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  	<head>
+		<!-- Required meta tags -->
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		{% load static %}
+	
+		<title>全国オフ出店ショップ・雑誌取材紹介 | SOARER FESTIVAL 2019</title>
+		<!-- OGP -->
+		<meta property="og:title" content="全国オフ出店ショップ・雑誌取材紹介 | SOARER FESTIVAL 2019">
+		<meta property="og:type" content="website">
+		<meta property="og:description" content="全国オフの出展ショップと取材に来ていただく雑誌を紹介します。SOARER FESTIVAL 2019は2019年7月14日に長野県塩尻市チロルの森で開催します。">
+		<meta property="og:url" content="https://team-matoi.com/exhibition/">
+		<meta property="og:image" content="https://team-matoi.com/static/img/exhibition.jpg">
+		<meta property="og:site_name" content="SOARER FESTIVAL 2019">
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@aramsan" />
+		<meta property="og:url" content="https://team-matoi.com/exhibition/" />
+		<meta property="og:title" content="全国オフ出店ショップ・雑誌取材紹介 | SOARER FESTIVAL 2019" />
+		<meta property="og:description" content="全国オフの出展ショップと取材に来ていただく雑誌を紹介します。SOARER FESTIVAL 2019は2019年7月14日に長野県塩尻市チロルの森で開催します。" />
+		<meta property="og:image" content="https://team-matoi.com/static/img/exhibition.jpg" />
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+		<script src="{% static "js/jquery.validationEngine-ja.js" %}"></script>
+		<script src="{% static "js/jquery.validationEngine.js" %}"></script>
+		<script src="{% static "js/jquery.flexslider.js" %}"></script>
+		<link href="{% static "css/flexslider.css"%} rel="stylesheet" type="text/css" />
+		<script src="{% static "js/strftime.js" %}"></script>
+		<script src="{% static "js/sprintf.js" %}"></script>
+		<script src="{% static "js/micro-location.js" %}"></script>
+		<script src="{% static "js/micro_dispatcher.js" %}"></script>
+		<link href="{% static "css/main.css" %}?asdf" rel="stylesheet" type="text/css" media="screen" />
+		<link href="{% static "css/validationEngine.jquery.css" %}" rel="stylesheet" type="text/css" />
+		<script src="{% static "js/main.js" %}"></script>
+		<script type="text/javascript" src="{% static "/js/jquery.timeago.js" %}"></script>
+		<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<script>
+		$(document).ready(function(){
+		jQuery.timeago.settings.strings = {
+			prefixAgo: "",
+			prefixFromNow: "今から",
+			suffixAgo: "前",
+			suffixFromNow: "後",
+			seconds: "1 分未満",
+			minute: "約 1 分",
+			minutes: "%d 分",
+			hour: "約 1 時間",
+			hours: "約 %d 時間",
+			day: "約 1 日",
+			days: "約 %d 日",
+			month: "約 1 ヶ月",
+			months: "約 %d ヶ月",
+			year: "約 1 年",
+			years: "約 %d 年",
+			wordSeparator: ""
+		};
+		$('abbr.timeago').timeago();
+		});
+		</script>
+  	</head>
+  	<body>
+    	<nav class="navbar navbar-dark">
+      		<a class="navbar-brand" href="/">SOARER FESTIVAL 2019</a>
+      		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsMenu" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+        		<span class="navbar-toggler-icon"></span>
+      		</button>
+
+			<div class="collapse navbar-collapse" id="navbarsMenu">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<span class="navbar-text">
+							{% if 'userid' in request.session %}{{ request.session.username }}さん{% endif %}
+						</span>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/">トップページ</a>
+					</li>
+					{% if 'userid' in request.session %}
+					<li class="nav-item">
+                        <a class="nav-link" href="/entry/logout/">ログアウト</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/entry/edit/">参加表明修正</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/lunch/">お弁当申し込み</a>
+                    </li>
+					{% else %}
+					<li class="nav-item">
+						<a class="nav-link" href="/entry/login/">ログイン</a>
+					</li>
+					{% endif %}
+					<li class="nav-item">
+						<a class="nav-link" href="/entry/">参加者リスト</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/bbs/">お問い合わせ掲示板</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/gallery">ギャラリー</a>
+					</li>
+				</ul>
+			</div>
+   		</nav>
+		<main>
+            <div class="row">
+                <div class="col-md-8 offset-md-2 text-right">
+                    <img src="{% static "/img/exhibition.png" %}" class="img-fluid" alt="Responsive image"><br>
+                    2019.06.16
+                </div>
+            </div>
+			
+			<div class="container">
+				<div class="row mt-5 mb-5">
+					<div class="col-md-8 offset-md-2">
+						<div class="text-left infobox">
+						    <h2 class="ml-4">準備はすすんでますか？</h2>
+<pre class="text-left pl-4 pr-4">
+さて、SOARER FESTIVAL 2019まで1ヶ月を切りました。みなさん準備は進んでいますでしょうか。バッチリ準備できていてあとはその日が来るのを待つだけ！とういう人も、準備が進んでいない人も、仕事のシフトがわからずまだ参加表明できない人も、いろいろいらっしゃると思います。
+皆さん状況はいろいろかと思いますが、当日へ向けて気分を盛り上げていこうということで、当日の企画について少しだけ紹介します。今回は、当日出店していただけるショップや、取材に来てくださる雑誌についてご紹介します。
+</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+
+            <div class="container">
+				<div class="row mt-4">
+                    <div class="col-md-4 offset-md-4">
+                        <ul class="list-group text-center" style="width: 100%;">
+                            {% if 'userid' not in request.session %}
+                            <li class="list-group-item"><a href="/entry/signup/"><i class="fas fa-plus"></i>　参加表明</a></li>  
+                            {% else %}
+                            <li class="list-group-item"><a href="/entry/edit/"><i class="fas fa-edit"></i>　参加表明修正</a></li>  
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+			</div>
+
+			<div class="container">
+				<div class="row mt-5 mb-5">
+					<div class="col-md-8 offset-md-2">
+						<div class="text-left infobox">
+						    <h2 class="ml-4">出店ショップ①　「Artist」さん</h2>
+<pre class="text-left p-4">
+まず、1店目は、地元長野県安曇野市のショップ、「Artist」さんです。今回のSOARER FESTIVAL 2019実行委員会のメンバーもお世話になっているショップです。
+</pre>
+                        </div>
+                        <div class="text-center infobox-body">
+                            <img src="{% static "/img/artist.jpg" %}" class="img-fluid" alt="Responsive image"><br><br>
+							<a href="http://www.artist-jp.com/" class="btn btn-primary" target="_blank">Artistさんのサイトへ</a><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+				<div class="row mt-4">
+                    <div class="col-md-4 offset-md-4">
+                        <ul class="list-group text-center" style="width: 100%;">
+                            {% if 'userid' not in request.session %}
+                            <li class="list-group-item"><a href="/entry/signup/"><i class="fas fa-plus"></i>　参加表明</a></li>  
+                            {% else %}
+                            <li class="list-group-item"><a href="/entry/edit/"><i class="fas fa-edit"></i>　参加表明修正</a></li>  
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+			</div>
+
+			<div class="container">
+				<div class="row mt-5 mb-5">
+					<div class="col-md-8 offset-md-2">
+						<div class="text-left infobox">
+						    <h2 class="ml-4">出店ショップ②　「BLACK LINE」さん</h2>
+<pre class="text-left p-4">
+2店目は、昨年の全国オフに引き続き、埼玉県でドラッグマシンを専門とするRACINNG GAREGE BLACK LINEさんが出店されます！！！こちらも趣向を凝らした出店となりますので是非お立ち寄りください！！！
+</pre>
+                        </div>
+                        <div class="text-center infobox-body">
+                            <img src="{% static "/img/blackline.jpg" %}" class="img-fluid" alt="Responsive image"><br><br>
+							<a href="http://www.blackline-racing.com/" class="btn btn-primary" target="_blank">RACING GAREGE BLACK LINEさんのサイトへ</a><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+				<div class="row mt-4">
+                    <div class="col-md-4 offset-md-4">
+                        <ul class="list-group text-center" style="width: 100%;">
+                            {% if 'userid' not in request.session %}
+                            <li class="list-group-item"><a href="/entry/signup/"><i class="fas fa-plus"></i>　参加表明</a></li>  
+                            {% else %}
+                            <li class="list-group-item"><a href="/entry/edit/"><i class="fas fa-edit"></i>　参加表明修正</a></li>  
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+			</div>
+
+			<div class="container" id="detail">
+				<div class="row mt-5 mb-5">
+					<div class="col-md-8 offset-md-2">
+						<div class="text-left infobox">
+						    <h2 class="ml-4">雑誌の取材も！</h2>
+<pre class="text-left pl-4 pr-4">
+SOARER FESTIVAL 2019はソアラオーナーだけでなく、各種メディアの方からも注目されております。当日は三栄書房の「Option」さんと、内外出版の「高速有鉛」さんの取材があります！！！！ひょっとしたらG社の80年代の専門誌の取材もあるかもしれません。取材はいづれの雑誌社様とも自由に行って頂く形になりますので、写真撮影などへご協力のほどよろしくお願いします！！！
+記者さんから声など掛けられましたら思う存分自分のソアラをアピールして下さい(^^♪。
+せっかく信州まで来てくださるので、雑誌の取材の受けたという、普段とは違う非日常体験なんていかがでしょうか？
+</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <div class="container">
+				<div class="row mt-4">
+                    <div class="col-md-4 offset-md-4">
+                        <ul class="list-group text-center" style="width: 100%;">
+                            {% if 'userid' not in request.session %}
+                            <li class="list-group-item"><a href="/entry/signup/"><i class="fas fa-plus"></i>　参加表明</a></li>  
+                            {% else %}
+                            <li class="list-group-item"><a href="/entry/edit/"><i class="fas fa-edit"></i>　参加表明修正</a></li>  
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+			</div>
+
+			<div class="container">
+                <div class="row mt-4">
+                <div class="col-12">
+                    <p class="text-center "><a href="/">トップページへ</a></p>
+                </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                <div class="col-12">
+                    <p class="text-center "><small>運営:SOARER FESTIVAL 2019 実行委員会 / チーム纏</small></p>
+                </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
