@@ -19,3 +19,6 @@ def lunch(request):
 
 def exhibition(request):
     return render(request, 'app/exhibition.html')
+
+def maintenance(request):
+    return render(request, 'app/maintenance.html')
