@@ -7,6 +7,7 @@
     <div class="row">
       <div class="col-md-4 offset-md-4">
          <ul class="list-group text-center" style="width: 100%;">
+            <li class="list-group-item"><a href="/prepare"><i class="fas fa-list-ol"></i>　持ち物リスト</a></li>
             {% if 'userid' in request.session %}
             <li class="list-group-item"><a href="/entry/edit/"><i class="far fa-edit"></i>　参加表明修正</a></li>
             {% else %}
@@ -28,6 +29,40 @@
       </div>
    </div>
 </div>
+
+<div class="container">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <a href="/prepare"><img class="d-block w-100" src="{% static "/img/prepare.png" %}" alt="First slide"></a>
+            </div>
+            <div class="carousel-item">
+                <a href="/maintenace"><img class="d-block w-100" src="{% static "/img/maintenance.png" %}" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <a href="/exhibition"><img class="d-block w-100" src="{% static "/img/exhibition.png" %}" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <a href="/lunch"><img class="d-block w-100" src="{% static "/img/lunch.jpg" %}" alt="Third slide">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">次へ</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">前へ</span>
+        </a>
+    </div>
+</div>
+
 <div class="container">
     <div class="row mt-5">
         <div class="col-md-8 offset-md-2">
@@ -52,6 +87,7 @@
             <div class="text-center infobox">
             <h2>新着情報</h2>
 <pre>
+2019.7.6 持ち物リストのページを追加しました。
 2019.6.30 お弁当の受付を終了しました。
 2019.6.16 出店ショップ、雑誌取材のページを追加しました。
 2019.5.26 後夜祭の受付上限を40名としました。お申込みはお早めにお願いいたします。
