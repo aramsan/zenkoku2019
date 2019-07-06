@@ -22,3 +22,6 @@ def exhibition(request):
 
 def maintenance(request):
     return render(request, 'app/maintenance.html')
+
+def prepare(request):
+    return render(request, 'app/prepare.html')

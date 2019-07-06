@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+  	<head>
+		<!-- Required meta tags -->
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		{% load static %}
+	
+		<title>持ち物リスト | SOARER FESTIVAL 2019</title>
+		<!-- OGP -->
+		<meta property="og:title" content="持ち物リスト | SOARER FESTIVAL 2019">
+		<meta property="og:type" content="website">
+		<meta property="og:description" content="クルマ、免許証、お金、ネームホルダーを忘れずに持ってきてください！！SOARER FESTIVAL 2019は2019年7月14日に長野県塩尻市チロルの森で開催します。">
+		<meta property="og:url" content="https://team-matoi.com/prepare">
+		<meta property="og:image" content="https://team-matoi.com/static/img/prepare.png?update=1">
+		<meta property="og:site_name" content="SOARER FESTIVAL 2019">
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@aramsan" />
+		<meta property="og:url" content="https://team-matoi.com/prepare" />
+		<meta property="og:title" content="持ち物リスト | SOARER FESTIVAL 2019" />
+		<meta property="og:description" content="クルマ、免許証、お金、ネームホルダーを忘れずに持ってきてください！！SOARER FESTIVAL 2019は2019年7月14日に長野県塩尻市チロルの森で開催します。" />
+		<meta property="og:image" content="https://team-matoi.com/static/img/prepare.png?update=1" />
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+		<script src="{% static "js/jquery.validationEngine-ja.js" %}"></script>
+		<script src="{% static "js/jquery.validationEngine.js" %}"></script>
+		<script src="{% static "js/jquery.flexslider.js" %}"></script>
+		<link href="{% static "css/flexslider.css"%} rel="stylesheet" type="text/css" />
+		<script src="{% static "js/strftime.js" %}"></script>
+		<script src="{% static "js/sprintf.js" %}"></script>
+		<script src="{% static "js/micro-location.js" %}"></script>
+		<script src="{% static "js/micro_dispatcher.js" %}"></script>
+		<link href="{% static "css/main.css" %}?asdf" rel="stylesheet" type="text/css" media="screen" />
+		<link href="{% static "css/validationEngine.jquery.css" %}" rel="stylesheet" type="text/css" />
+		<script src="{% static "js/main.js" %}"></script>
+		<script type="text/javascript" src="{% static "/js/jquery.timeago.js" %}"></script>
+		<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<script>
+		$(document).ready(function(){
+		jQuery.timeago.settings.strings = {
+			prefixAgo: "",
+			prefixFromNow: "今から",
+			suffixAgo: "前",
+			suffixFromNow: "後",
+			seconds: "1 分未満",
+			minute: "約 1 分",
+			minutes: "%d 分",
+			hour: "約 1 時間",
+			hours: "約 %d 時間",
+			day: "約 1 日",
+			days: "約 %d 日",
+			month: "約 1 ヶ月",
+			months: "約 %d ヶ月",
+			year: "約 1 年",
+			years: "約 %d 年",
+			wordSeparator: ""
+		};
+		$('abbr.timeago').timeago();
+		});
+		</script>
+  	</head>
+  	<body>
+    	<nav class="navbar navbar-dark">
+      		<a class="navbar-brand" href="/">SOARER FESTIVAL 2019</a>
+      		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsMenu" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+        		<span class="navbar-toggler-icon"></span>
+      		</button>
+
+			<div class="collapse navbar-collapse" id="navbarsMenu">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<span class="navbar-text">
+							{% if 'userid' in request.session %}{{ request.session.username }}さん{% endif %}
+						</span>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/">トップページ</a>
+					</li>
+					{% if 'userid' in request.session %}
+					<li class="nav-item">
+                        <a class="nav-link" href="/entry/logout/">ログアウト</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/entry/edit/">参加表明修正</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/lunch/">ランチ情報</a>
+                    </li>
+					{% else %}
+					<li class="nav-item">
+						<a class="nav-link" href="/entry/login/">ログイン</a>
+					</li>
+					{% endif %}
+					<li class="nav-item">
+						<a class="nav-link" href="/entry/">参加者リスト</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/bbs/">お問い合わせ掲示板</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/gallery">ギャラリー</a>
+					</li>
+				</ul>
+			</div>
+   		</nav>
+		<main>
+            <div class="row">
+                <div class="col-md-8 offset-md-2 text-right">
+                    <img src="{% static "/img/prepare.png" %}" class="img-fluid" alt="Responsive image"><br>
+                    2019.07.06
+                </div>
+            </div>
+			
+			<div class="container">
+				<div class="row mt-5 mb-5">
+					<div class="col-md-8 offset-md-2">
+						<div class="text-left infobox">
+						    <h2 class="ml-4">持ち物の準備は大丈夫ですか？</h2>
+<pre class="text-left pl-4 pr-4">
+さて、SOARER FESTIVAL 2019まであと1週間。持ち物の準備をすすめましょう！最低限、クルマ、免許証、お金、ネームホルダー、そして熱い気持ちは準備しておきましょう！
+</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+
+            <div class="container">
+				<div class="row mt-4">
+                    <div class="col-md-4 offset-md-4">
+                        <ul class="list-group text-center" style="width: 100%;">
+                            {% if 'userid' not in request.session %}
+                            <li class="list-group-item"><a href="/entry/signup/"><i class="fas fa-plus"></i>　参加表明</a></li>  
+                            {% else %}
+                            <li class="list-group-item"><a href="/entry/edit/"><i class="fas fa-edit"></i>　参加表明修正</a></li>  
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+			</div>
+
+			<div class="container">
+				<div class="row mt-5 mb-5">
+					<div class="col-md-8 offset-md-2">
+						<div class="text-left infobox">
+						    <h2 class="ml-4">1.ネームホルダー</h2>
+<pre class="text-left p-4">
+SOARER FESTIVAL 2019では、ネームホルダーの配布はしません。でも、せっかくの1年に1回のソアラ好きが集まるイベントです。多くの方と交流するチャンスです。実行委員会としてもなるべく多くの方に交流していただきたいと思っています。そこで、ネームタグは実行委員会で用意しますので、その入れ物のとなるネームホルダーを各自で持ってきてください。過去の全国オフのネームホルダーがある方はそれを持ってくるのもよし、自分のキャラクターを表すネームホルダーを持ってくるのもよし。ネームホルダーも一つの楽しみになりますね！
+</pre>
+                        </div>
+                        <div class="text-center infobox-body">
+                            <img src="{% static "/img/nameholder.png" %}" class="img-fluid" alt="Responsive image"><br>
+                            <small><a href="https://www.amazon.co.jp/dp/B07JYTQZF6/" target="_new">画像はAmazonより</a></small><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+				<div class="row mt-4">
+                    <div class="col-md-4 offset-md-4">
+                        <ul class="list-group text-center" style="width: 100%;">
+                            {% if 'userid' not in request.session %}
+                            <li class="list-group-item"><a href="/entry/signup/"><i class="fas fa-plus"></i>　参加表明</a></li>  
+                            {% else %}
+                            <li class="list-group-item"><a href="/entry/edit/"><i class="fas fa-edit"></i>　参加表明修正</a></li>  
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+			</div>
+
+			<div class="container">
+				<div class="row mt-5 mb-5">
+					<div class="col-md-8 offset-md-2">
+						<div class="text-left infobox">
+						    <h2 class="ml-4">2.クルマ</h2>
+<pre class="text-left p-4">
+忘れる人はいないと思いますが、準備は必要です。通常の走行前点検に加えて、長距離走行に備えて点検をすべき箇所をまとめた、メンテナンスのススメをまとめましたので、こちらを参考にしてください！
+</pre>
+                        </div>
+                        <div class="text-center infobox-body">
+                            <a href="/maintenance"><img src="{% static "/img/maintenance.png" %}" class="img-fluid" alt="Responsive image"></a><br>
+                            <small><a href="/maintenace">メンテナンスのすすめ</a></small><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+				<div class="row mt-4">
+                    <div class="col-md-4 offset-md-4">
+                        <ul class="list-group text-center" style="width: 100%;">
+                            {% if 'userid' not in request.session %}
+                            <li class="list-group-item"><a href="/entry/signup/"><i class="fas fa-plus"></i>　参加表明</a></li>  
+                            {% else %}
+                            <li class="list-group-item"><a href="/entry/edit/"><i class="fas fa-edit"></i>　参加表明修正</a></li>  
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+			</div>
+
+			<div class="container" id="detail">
+				<div class="row mt-5 mb-5">
+					<div class="col-md-8 offset-md-2">
+						<div class="text-left infobox">
+						    <h2 class="ml-4">3.お金</h2>
+<pre class="text-left pl-4 pr-4">
+もちろん参加にはお金がかかります。参加費は1台2,000円で同乗者1名に付き500円です。当日の受付は大変混みあうことが予想されるので、お釣りがないように用意してもらえると円滑に進められるため大変助かります。また、参加費には1台に付き1つ記念品も含まれております。記念品は実行員会で心をこめて用意しておりますので楽しみにしていてください。
+
+また参加費に加えてお食事代・お土産代も別途ご用意ください。すでにお申し込みは締め切っていますが、お弁当をお申し込まれた方はその代金を忘れずに用意してくださいね。何も食事の用意をしていないという方は、チロルの森園内には食事を取れるところがたくさんありますのでご安心ください。
+
+また、ぜひお土産もたくさん買ってくださいね。チロルの森自家製ソーセージや地ビールがおすすめですよ。
+</pre>
+                        </div>
+                        <div class="text-center infobox-body">
+                            <img src="{% static "/img/money.png" %}" class="img-fluid" alt="Responsive image"><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <div class="container">
+				<div class="row mt-4">
+                    <div class="col-md-4 offset-md-4">
+                        <ul class="list-group text-center" style="width: 100%;">
+                            {% if 'userid' not in request.session %}
+                            <li class="list-group-item"><a href="/entry/signup/"><i class="fas fa-plus"></i>　参加表明</a></li>  
+                            {% else %}
+                            <li class="list-group-item"><a href="/entry/edit/"><i class="fas fa-edit"></i>　参加表明修正</a></li>  
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+			</div>
+
+            <div class="container">
+				<div class="row mt-5 mb-5">
+					<div class="col-md-8 offset-md-2">
+						<div class="text-left infobox">
+						    <h2 class="ml-4">4.快適に過ごすために</h2>
+<pre class="text-left pl-4 pr-4">
+SOARER FESTIVAL 2019はまる1日かけて開催されるイベントです。1日中立って過ごすとすごく疲れてしまいますよね。そこでおすすめなのが折りたたみ式の椅子です。他にもサングラス、タオルなど暑い一日を快適に過ごすアイテムを持ってくることをおすすめします。
+
+そして、最後に、熱い気持ちを忘れずに持ってきましょう。SOARER FESTIVAL 2019を楽しむために一番大事な持ち物です。忘れ物なく万全の用意をして、当日は目一杯楽しみましょう。実行委員会も皆様が楽しめるよう、精一杯努めていきますのでよろしくお願いいたします。
+</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <div class="container">
+				<div class="row mt-4">
+                    <div class="col-md-4 offset-md-4">
+                        <ul class="list-group text-center" style="width: 100%;">
+                            {% if 'userid' not in request.session %}
+                            <li class="list-group-item"><a href="/entry/signup/"><i class="fas fa-plus"></i>　参加表明</a></li>  
+                            {% else %}
+                            <li class="list-group-item"><a href="/entry/edit/"><i class="fas fa-edit"></i>　参加表明修正</a></li>  
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+			</div>
+
+			<div class="container">
+                <div class="row mt-4">
+                <div class="col-12">
+                    <p class="text-center "><a href="/">トップページへ</a></p>
+                </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                <div class="col-12">
+                    <p class="text-center "><small>運営:SOARER FESTIVAL 2019 実行委員会 / チーム纏</small></p>
+                </div>
+                </div>
+            </div>
+        </main>
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-exclamation-triangle"></i>　参加人数の確認をお願いします</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            すでに参加表明を頂いている方にお願いです。<br><br>
+            ご自身の参加表明をもう一度見直していただき、人数が間違っていないかご確認ください。間違ったままになっていますと料理の手配など他の方々にご迷惑がかかってしまう場合がございます。ご協力のほどよろしくお願いいたします。<br>
+            後夜祭につきましては、参加表明のフォームでの人数変更はできなくしておりますので、もしご変更がある場合は、お手数ですが<a href="/bbs">問い合わせ掲示板</a>に連絡いただくか、<a href="https://form1ssl.fc2.com/form/?id=b80d5db1cbda701c">メールフォーム</a>にて連絡をお願いいたします。
+          </div>
+          <div class="modal-footer">
+            {% if 'userid' in request.session %}
+            <a href="/entry/edit/"  class="btn btn-primary">参加表明を確認する</a>
+            {% else %}
+            <a href="/entry/login/" class="btn btn-primary">ログイン</a>
+            {% endif %}
+            <button type="button" class="btn btn-secondary" id="confirmNum" data-dismiss="modal">確認済みです</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+    $(window).on('load',function(){
+      if(localStorage.getItem('confirmNum') != 1) {
+        $('#myModal').modal('show');
+      }
+    });
+    $('#confirmNum').on('click',function(){
+      localStorage.setItem('confirmNum', 1);
+    });
+    </script>
+    </body>
+</html>
