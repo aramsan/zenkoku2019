@@ -13,7 +13,7 @@ pip==9.0.1
 PyMySQL==0.8.0
 python-dateutil==2.7.2
 pytz==2017.3
-requests==2.18.4
+requests==2.20.0
 setuptools==38.5.1
 six==1.11.0
 urllib3==1.22
