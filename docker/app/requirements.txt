@@ -1,6 +1,6 @@
 certifi==2018.1.18
 chardet==3.0.4
-Django==2.0.1
+Django==2.0.12
 django-bootstrap4==0.0.6
 et-xmlfile==1.0.1
 facebook-sdk==2.0.0
@@ -13,10 +13,10 @@ pip==9.0.1
 PyMySQL==0.8.0
 python-dateutil==2.7.2
 pytz==2017.3
-requests==2.18.4
+requests==2.20.0
 setuptools==38.5.1
 six==1.11.0
-urllib3==1.22
+urllib3==1.24.2
 uWSGI==2.0.15
 xlrd==1.1.0
 xlutils==2.0.0

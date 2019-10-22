@@ -1,0 +1,86 @@
+{% extends "base/base.html" %}
+{% block contents %}
+{% load static %}
+{% if entry_list %}
+<script>
+$(function () {
+    {% for entry in entry_list %}
+    $('[data-toggle="tooltip{{ entry.userid }}"]').tooltip();
+    {% endfor %}
+})
+</script>
+{% endif %}
+{% if entry_list %}
+<div class="row pt-4 text-center">
+    <div class ="col-md-2 offset-md-5">
+        <table class="table table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">大人</th>
+                    <th scope="col">子供</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">参加者</th>
+                    <td>{{ stat.adult__sum }}人</td>
+                    <td>{{ stat.child__sum }}人</td>
+                </tr>
+                <tr>
+                    <th scope="row">後夜祭</th>
+                    <td>{{ stat.after_adult__sum }}人</td>
+                    <td>{{ stat.after_child__sum }}人</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% for entry in entry_list %}
+<div class="row p-4 text-left" id="{{ entry.userid }}">
+    <div class ="col-md-4 offset-md-4">
+        <div class="card d-block">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{ entry.username }} さん</li>
+            </ul>
+            <img class="card-img" src="{{ entry.picture }}">
+            <div class="card-body">
+            {% if 'userid' in request.session %}
+            {% if entry.userid == request.session.userid %}
+            <div class="pb-2">
+                <a href="/entry/edit/"><i class="fas fa-edit mr-1"></i>編集する</a>
+            </div>
+            {% endif %}
+            {% endif %}
+            <div class="pb-2">
+                <span class="mr-2"  data-toggle="tooltip{{ entry.userid }}" data-placement="right" data-html="true" title="いいねした人{% for like in entry.likes %}<br>{{ like.likerinfo.username }} さん{% endfor %}">
+                    {% if 'userid' in request.session %}<a href="/entry/like/{{ entry.userid }}/"><i class="fas fa-thumbs-up"></i></a>{% else %}<i class="fas fa-thumbs-up"></i>{% endif %}
+                    {{ entry.likes|length }}件
+                </span>
+            </div>
+            <div>{{ entry.message|linebreaksbr }}</div>
+            {% for comment in entry.comments %}
+            <div><span class="mr-2"><a href="/entry/#{{ comment.commenter }}" class="text-dark">@{{ comment.commenterinfo.username }}</a></span>{{ comment.message|linebreaksbr }}</div>
+            {% endfor %}
+            {% if 'username' in request.session %}
+            <form action="/entry/comment/{{ entry.userid }}/" method="POST" class="form-inline">
+                {% csrf_token %}
+                <div class="input-group w-100 input-group-sm mt-2">
+                    <input type="text" class="form-control" name="comment" placeholder="コメントする">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary text-right">送る</button>
+                    </div>
+                </div>
+            </form>
+            {% endif %}
+            <div  class="pt-2"><small>車種：{{ entry.type }}　グレード：{{ entry.grade }}　出発地：{{ entry.departure }}</small></div>
+            <div><small>大人{{ entry.adult }}人　小人{{ entry.child }}人　<small>🍻大人{{ entry.after_adult }}人　小人{{ entry.after_child }}人</small></small></div>
+            <div><small><abbr class="timeago text-secondary" title="{{ entry.time|date:'Y-m-d H:i:s' }}">更新時間</abbr></small></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+
+{% endblock contents %}

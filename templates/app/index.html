@@ -2,56 +2,124 @@
 {% block contents %}
 {% load static %}
 <div class="jumbotron">
-   <h1>　<br>　<br>　<br>　<br>　<br>　<br></h1>
 </div>
+
 <div class="container">
-    <div class="row">
-      <div class="col-md-4 col-md-offset-4">
-         <ul class="list-group text-center" style="width: 100;">
-            <li class="list-group-item"><a href="/bbs">問い合せ掲示板</a></li>
-            <li class="list-group-item"><a href="/gallery">ギャラリー</a></li>
+    <div class="row mt-5 mb-5">
+        <div class="col-md-8 offset-md-2">
+            <div class="infobox">
+            <h2 class="text-center">ごあいさつ</h2>
+            <pre>
+SOARER FESTIVAL 2019 in 信州 実行委員会代表の纏です。
+
+今回で10周年のメモリアルイヤーとなった信州でのソアラオフ。
+北は北海道から南は九州までまさに日本列島各地から参加して頂き過去最多台数となる210台(ソアラのみ)もの参加台数となり驚きに近いほどの喜びで一杯です！！
+
+当日はバタバタしており十分な対応が取れずご迷惑をお掛けする事などあったかと思いますが参加された皆さまのご協力があったからこそこうして無事に終了できたと信じております。
+
+『SOARER FESTIVAL』を通じてできたソアラの輪をその日だけの物にせず色んな方と繋げて頂きより充実したソアラライフになれば幸いです。
+
+年々、カーミーティングを取り巻く環境は厳しい物となっておりますがこういった情報交換や交流の場を末永く続けて行ければとメンバー全員で願っております。
+
+最後に…
+
+『SOARER FESTIVAL 2019 in 信州』に関わって頂いた全ての皆さま。本当にありがとうございました！！！！
+
+SOARER FESTIVAL 2019 実行委員会 / チーム纏 代表　纏
+            </pre>
+         </div>
+      </div>
+</div>
+
+<div class="container">
+    <div class="row mb-5">
+      <div class="col-md-4 offset-md-4">
+         <ul class="list-group text-center" style="width: 100%;">
+            <li class="list-group-item"><a href="/prepare"><i class="fas fa-list-ol"></i>　持ち物リスト</a></li>
+            {% if 'userid' in request.session %}
+            <li class="list-group-item"><a href="/entry/edit/"><i class="far fa-edit"></i>　参加表明修正</a></li>
+            {% else %}
+            <li class="list-group-item"><a href="/entry/signup/"><i class="fas fa-plus"></i>　参加表明</a></li>
+            {% endif %}
+            <li class="list-group-item"><a href="/entry/"><i class="fas fa-list"></i>　参加者リスト</a></li>
+            {% if 'is_admin' in request.session %}
+            {% if request.session.is_admin %}
+            <li class="list-group-item"><a href="/entry/admin/"><i class="fas fa-list"></i>　参加者リスト(管理者用)</a></li>
+            {% endif %}
+            {% endif %}
+            <li class="list-group-item"><a href="/lunch"><i class="fas fa-utensils"></i>　お弁当・ランチ情報</a></li>
+            <li class="list-group-item"><a href="/exhibition"><i class="fas fa-shipping-fast"></i>　出店ショップ・雑誌取材</a></li>
+            <li class="list-group-item"><a href="/maintenance"><i class="fas fa-tools"></i>　メンテナンスのすすめ</a></li>
+            <li class="list-group-item"><a href="/threemonth"><i class="fas fa-microphone"></i>　代表の挨拶</a></li>
+            <li class="list-group-item"><a href="/bbs"><i class="fas fa-question"></i>　問い合わせ掲示板</a></li>
+            <li class="list-group-item"><a href="/gallery"><i class="far fa-images"></i>　ギャラリー</a></li>
          </ul>
       </div>
    </div>
 </div>
+
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <a href="/prepare"><img class="d-block w-100" src="{% static "/img/prepare.png" %}" alt="First slide"></a>
+            </div>
+            <div class="carousel-item">
+                <a href="/maintenance"><img class="d-block w-100" src="{% static "/img/maintenance.png" %}" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <a href="/exhibition"><img class="d-block w-100" src="{% static "/img/exhibition.png" %}" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <a href="/lunch"><img class="d-block w-100" src="{% static "/img/lunch.jpg" %}" alt="Third slide">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">次へ</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">前へ</span>
+        </a>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-8 offset-md-2">
             <div class="text-center infobox">
             <h2>新着情報</h2>
 <pre>
-2019.3.3 詳細情報と主催からの挨拶をアップしました
+2019.7.11 記念品に関する注意事項を追記しました。
+2019.7.6 持ち物リストのページを追加しました。
+2019.6.30 お弁当の受付を終了しました。
+2019.6.16 出店ショップ、雑誌取材のページを追加しました。
+2019.5.26 後夜祭の受付上限を40名としました。お申込みはお早めにお願いいたします。
+2019.5.19 お弁当、後夜祭の受付を開始しました
+2019.4.14 参加表明受付を開始しました
+2019.3.3 詳細情報をアップしました
 </pre>
             </div>
          </div>
       </div>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="text-center infobox">
-            <h2>ご挨拶</h2>
-<pre class="text-left">
-こんにちは。SOARER FESTIVAL 2019 実行委員会 / チーム纏 代表の纏です。こうやって信州でソアライベントを行うようになって今年で10年目。はじめは少ない台数で始まったこのイベントも全国オフというビックイベントを開催できるまでに成長でき非常に嬉しく思います。これもひとえに例年参加して下さる皆様のおかげだと思っております。帰り際『また来年も来るから～』の一言でここまでやれたんだなと思います。
-SOARER FESTIVAL 2019 in 信州 は10～40/SCの各型式のオーナー様が全国各地から集まり交流・情報交換を図ることを目的としております。またご家族連れの方、初参加の方でも気軽に参加できるようなイベント作りを心掛けております。会場内は食事の他、各アトラクション等もありますのでカーミーティングに観光にと一日を通して楽しめるかと思います。
-当イベントが皆様にとって有意義な時間となりより一層素敵なソアラライフになればと願っております！！！！
-お友達・ご家族お誘いの上信州に遊びに来ていただければと思います。
-</pre>
-<pre class="text-right">
-SOARER FESTIVAL 2019 実行委員会 / チーム纏 代表　纏
-</pre>
-            </div>
-         </div>
-      </div>
-</div>
+
 <div class="container" id="detail">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+    <div class="row mt-5">
+        <div class="col-md-8 offset-md-2">
             <div class="text-center infobox">
                 <h2>詳細情報</h2>
 <pre class="text-left">
 開催日時：2019.07.14(日)　※雨天決行
-開催時刻：10：00～16：00 (㊟2)
+開催時刻：10：00～16：00
 ※入場・受付開始8：00～　
 ※会場が17時閉園となりますので17時完全撤収となります。
 
@@ -75,10 +143,56 @@ SOARER FESTIVAL 2019 実行委員会 / チーム纏 代表　纏
 ※同乗者の方は一人に付き500円
 ※運転手+同乗者2名の場合。2000+500+500で3000円となります。
 ※ソアラ以外のお車で見学者の方は一律500円となります。
+※参加台数によっては、記念品を当日お渡しできないことがございます。
 
 参加資格：ALL SOARER （10～40系）＆LEXUS SC。
 ※それらの車種をこよなく愛される方。
 ※他車種の方でも参加(見学)可能ですが駐車エリアは別となります。
+
+☆ご家族で楽しめる会場となっておりますのでゆっくりとソアラ信州オフを楽しんで頂ければと思います！！！
+
+
+【信州オフは事前エントリー制となっておりますので参加表明にご協力ください！！】
+
+参加表明は本サイトよりエントリーできます。
+参加表明されてませんと入場時に当日チケットとなり団体割引対象外となる場合があります。
+環境等によりどうしても参加表明できない方はスタッフまでご連絡ください。
+サイト内には信州オフの詳細の他、周辺の観光マップ、会場のチロルの森の詳細、過去の信州オフのダイジェストなどがご覧になれます(^^♪
+オフ会前後の信州観光などにもご利用ください！！！！
+
+
+【当日はサインペンとネームタグホルダーをご用意ください！！】
+
+入場時にネームタグとエントリーシートをお渡しします。ネームタグにはご自身のハンドルネームや名前、エントリーシートにはお車の情報などをお書きください！！！
+ネームタグは入場券の代わりともなりますので失くさないようにして下さい。
+また、裏に数字が書かれおり後ほど豪華絢爛（かもしれない）の景品が当たる抽選会の際必要となります。
+当日、本部でもタグホルダーを販売しておりますが数に限りがありますので各自でご用意いただけると助かります。
+失くされますと再発行はできませんのでよろしくお願いします。
+
+
+【先着100名様には素敵(？)プレゼントをご用意しております！！！】
+
+参加記念品とは別の恒例プレゼントとなります！！
+※ソアラでの参加者優先となりますのでよろしくお願いします。
+参加車両1台につき1個となります。
+無くなり次第終了となりますのでよろしくお願いします。
+
+
+【注意事項：マナーのある楽しいオフ会にする為、以下の事を守って下さい。】
+
+◎ソアラオンリーのオフ会です。
+◎イベントの趣旨にそぐわない車両は入場をお断りする場合があります。
+◎危険防止の為にもイベントスタッフの指示に従って下さい。従って頂けない場合、退場して頂く場合もあります。
+◎公共の施設で季節柄家族連れの方が利用しますので、空吹かしや暴走などの迷惑行為はご遠慮下さい。(等イベントでは御座いませんがそれらの行為が原因でイベント開催を断られた団体があるそうです)
+◎ソアラ以外で参加される方は指定された場所に駐車してください。
+◎施設入場料をお支払する条件で会場をお借りしております。(例年、何かと理由を付けて参加費の支払いを拒んだり参加人数をごまかしチケットの使い回しなど不正行為を行う方がいて大変迷惑しております)
+◎他の方の利用者いますのでドローン撮影はご遠慮ください。
+◎当日は各型式(10、20、30、40、SC)毎に並んで頂く予定です。係りの者が案内いたしますので指示に従ってください
+◎同型式でグループごと友達同士で並べたい方は待機場所にて人数が揃ってから入場するようにしてください。
+◎個人間の物販は問題ありませんがトラブルの無いようにお願いします。
+◎当然ですが飲酒等は絶対禁止です。
+◎駐車場内では原則食事は禁止です。
+◎ゴミは各自持ち帰るようよろしくお願いします。
 </pre>
             </div>
         </div>
