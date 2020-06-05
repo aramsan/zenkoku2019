@@ -1,6 +1,6 @@
 certifi==2018.1.18
 chardet==3.0.4
-Django==2.0.12
+Django==2.2.13
 django-bootstrap4==0.0.6
 et-xmlfile==1.0.1
 facebook-sdk==2.0.0
