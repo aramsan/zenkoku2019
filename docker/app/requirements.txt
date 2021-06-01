@@ -16,7 +16,7 @@ pytz==2017.3
 requests==2.20.0
 setuptools==38.5.1
 six==1.11.0
-urllib3==1.24.2
+urllib3==1.26.5
 uWSGI==2.0.15
 xlrd==1.1.0
 xlutils==2.0.0
